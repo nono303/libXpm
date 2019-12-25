@@ -22,57 +22,50 @@
 .\" other dealing in this Software without prior written authorization 
 .\" from the X Consortium. 
 .\"
-
+.hw XImage
 .TH  xpmmisc __libmansuffix__ __xorgversion__ "libXpm functions" 
 .SH NAME  
 Xpmmisc \- xpm misc functions to free used memory and handle errors 
 .SH SYNOPSIS
 
 .HP
-int XpmFreeXpmImage(image)
-XpmImage*image;
-
+int XpmFreeXpmImage( XpmImage *image );
 .HP
-int XpmFreeXpmInfo(ainfo)
-XpmInfo *info;
-
+int XpmFreeXpmInfo( XpmInfo *info );
 .HP
-int XpmFreeAttributes(attributes)
-     XpmAttributes *attributes;
-
+int XpmFreeAttributes( XpmAttributes *attributes );
 .HP
 int XpmAttributesSize()
-
 .HP
-int XpmFreeExtensions(extensions, nextensions)
- XpmExtension *extensions;
- int nextensions;
-
+int XpmFreeExtensions( XpmExtension *extensions,  int nextensions );
 .HP
-int XpmFree(ptr)
-char *ptr;
-
+int XpmFree( char *ptr );
 .HP
-char *XpmGetErrorString(errorcode)
-int errorcode;
+char *XpmGetErrorString( int errorcode );
 .HP
 int XpmLibraryVersion()
 
 .SH ARGUMENTS
-.nf
-image		Specifies the structure to free
-info		Specifies the structure to free
-ptr		Specifies the data to free.
-errorcode	Specifies the XPM error.
-extensions	Specifies the array to free.
-nextensions	Specifies the number of extensions.
-attributes	Specifies the structure to free
-.fi
+
+.IP \fIimage\fP li
+Specifies the structure to free
+.IP \fIinfo\fP li
+Specifies the structure to free
+.IP \fIptr\fP li
+Specifies the data to free
+.IP \fIerrorcode\fP li
+Specifies the XPM error
+.IP \fIextensions\fP li
+Specifies the array to free
+.IP \fInextensions\fP li
+Specifies the number of extensions
+.IP \fIattributes\fP li
+Specifies the structure to free
+
 .SH DESCRIPTION
 
 To free possible data stored into an XpmImage structure use XpmFreeXpmImage.
-
-TheXpmFreeXpmImagefrees the structure members which are not NULL, but not the structure itself.
+The XpmFreeXpmImagefrees the structure members which are not NULL, but not the structure itself.
 To free possible data stored into an XpmInfo structure use XpmFreeXpmInfo.
 
 To free data possibly stored into an array of XpmExtension use XpmFreeExtensions.
@@ -101,8 +94,8 @@ in the header file "xpm.h". These numbers are computed with the following formul
 Where XpmFormat is the version number of the format, XpmVersion is the library version number (which changes
 only if the API changes), and XpmRevision is the library minor version number.
 
-This function frees all data stored in every extension and the array itself. Note that
-XpmFreeAttributes call this function and thus most of the time it should not need to be explicitly called.
+The XpmFreeExtensions function frees all data stored in every extension and the array itself.
+Note that XpmFreeAttributes call this function and thus most of the time it should not need to be explicitly called.
 
 .SH "SEE ALSO" 
 .BR XpmLibraryVersion(__libmansuffix__) ,

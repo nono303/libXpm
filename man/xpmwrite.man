@@ -22,57 +22,43 @@
 .\" other dealing in this Software without prior written authorization 
 .\" from the X Consortium. 
 .\"
-
+.hw XImage
 .TH XpmWrite __libmansuffix__ __xorgversion__ "libXpm functions" 
 .SH NAME 
 XpmWrite \- write an XPM file
 
 .SH SYNOPSIS
 .HP
-int XpmWriteFileFromPixmap(display, filename, pixmap, shapemask, attributes)
-     Display *display;
-     char *filename;
-     Pixmap pixmap;
-     Pixmap shapemask;
-     XpmAttributes *attributes;
-
+int XpmWriteFileFromPixmap( Display *display, char *filename, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes );
 .HP
-int XpmWriteFileFromImage(display, filename, image, shapeimage, attributes)
-      Display *display;
-      char *filename;
-      XImage*image;
-      XImage*shapeimage;
-      XpmAttributes *attributes;
-
+int XpmWriteFileFromImage( Display *display, char *filename, XImage *image, XImage *shapeimage, XpmAttributes *attributes );
 .HP
-int XpmWriteFileFromData(filename, data)
-      char *filename;
-      char **data;
-
+int XpmWriteFileFromData( char *filename, char **data );
 .HP
-int XpmWriteFileFromXpmImage(filename, image, shapeimage, info)
-      char *filename;
-      XpmImage*image;
-      XImage*shapeimage;
-      XpmInfo *info;
-
+int XpmWriteFileFromXpmImage( char *filename, XpmImage *image, XImage *shapeimage, XpmInfo *info );
 .HP
-int XpmWriteFileFromBuffer(filename, data)
-     char *filename;
-     char *buffer;
+int XpmWriteFileFromBuffer( char *filename,  char *buffer );
 
 .SH ARGUMENTS
-.nf
-display                    Specifies the connection to the X server.
-filename                   Specifies the file name to use.
-pixmap                     Specifies the pixmap.
-shapemask                  Specifies the shape mask pixmap.
-attributes                 Specifies the location of a structure containing information (or NULL).
-data                       Specifies the data array to read.
-image                      Specifies the image.
-info                       Specifies the location of a structure to get information from (or NULL).
-buffer			   Specifies the buffer to read.
-.fi
+
+.IP \fIdisplay\fP li
+Specifies the connection to the X server.
+.IP \fIfilename\fP li
+Specifies the file name to use.
+.IP \fIpixmap\fP li
+Specifies the pixmap.
+.IP \fIshapemask\fP li
+Specifies the shape mask pixmap.
+.IP \fIattributes\fP li
+Specifies the location of a structure containing information (or NULL).
+.IP \fIdata\fP li
+Specifies the data array to read.
+.IP \fIimage\fP li
+Specifies the image.
+.IP \fIinfo\fP li
+Specifies the location of a structure to get information from (or NULL).
+.IP \fIbuffer\fP li
+Specifies the buffer to read.
 
 .SH DESCRIPTION
 .SS XpmWriteFileFromImage
@@ -104,7 +90,7 @@ XpmWriteFileFromPixmap looks for the following atributes: XpmSize.
 If they are not defined it performs an XGetGeometry operation. 
 Then it uses XGetImage to get from the given pixmaps the related X images which are passed to XpmWriteFileFromImage. 
 Finally XpmWriteFileFromPixmap destroys the created images using XDestroyImage. 
-The XpmWriteFileFromPixmapfunction returns the same errors as XpmWriteFileFromImage.
+The XpmWriteFileFromPixmap function returns the same errors as XpmWriteFileFromImage.
 
 .SS XpmWriteFileFromData
 XpmWriteFileFromData writes an XPM data array to an XPM file.
@@ -114,8 +100,9 @@ XpmFileInvalid if this is not a valid XPM data, and XpmSuccess otherwise.
 
 .SS XpmWriteFileFromXpmImage
 To write out an XpmImage to an XPM file, use XpmWriteFileFromXpmImage.
-The XpmWriteFileFromXpmImage function writes an image out to a file in theXPM format. If the file cannot be
-opened, it returns XpmOpenFailed. If insufficient working storage is allocated, it returns XpmNoMemory. 
+The XpmWriteFileFromXpmImage function writes an image out to a file in the XPM format. 
+If the file cannot be opened, it returns XpmOpenFailed. 
+If insufficient working storage is allocated, it returns XpmNoMemory. 
 If no error occurs then it returns XpmSuccess.
 If the passed XpmInfo structure pointer is not NULL, XpmWriteFileFromXpmImage looks for the following attributes: 
 XpmComments, XpmExtensions, and XpmHotspot, and writes the related information out as well.
@@ -130,7 +117,7 @@ XpmWriteFileFromBuffer returns XpmOpenFailed if it cannot open the file, and Xpm
 As a convenience, the XpmReadFileToBuffer and XpmWriteFileFromBuffer are provided to copy a 
 file to a buffer and to write a file from a buffer. 
 Thus for instance one may decide to use XpmReadFileToBuffer, XpmCreatePixmapFromBuffer, and XpmFree 
-instead ofXpmReadFileToPixmap. On some systems this may lead to a performance improvement, 
+instead of XpmReadFileToPixmap. On some systems this may lead to a performance improvement, 
 since the parsing will be performed in memory, but it uses more memory.
 
 .SH "SEE ALSO" 

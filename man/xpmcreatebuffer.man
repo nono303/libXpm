@@ -22,43 +22,33 @@
 .\" other dealing in this Software without prior written authorization 
 .\" from the X Consortium. 
 .\"
-
+.hw XImage
 .TH XpmCreateBuffer __libmansuffix__ __xorgversion__ "libXpm functions" 
 .SH NAME 
 XpmCreateBuffer  \- create an Xpm-Buffer
 
 .SH SYNOPSIS
 .HP
-int XpmCreateBufferFromImage(display, buffer_return, image, shapeimage, attributes)
- Display *display;
- char **buffer_return;
- XImage*image;
- XImage*shapeimage;
- XpmAttributes *attributes;
-
+int XpmCreateBufferFromImage( Display *display, char **buffer_return, XImage *image, XImage *shapeimage, XpmAttributes *attributes );
 .HP
-int XpmCreateBufferFromPixmap(display, buffer_return, pixmap, shapemask, attributes)
-Display *display;
-char **buffer_return;
-Pixmappixmap;
-Pixmapshapemask;
-XpmAttributes *attributes;
-
+int XpmCreateBufferFromPixmap( Display *display, char **buffer_return, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes );
 .HP
-int XpmCreateBufferFromXpmImage(buffer_return, image, info)
-char **buffer_return;
-XpmImage*image;
-XpmInfo*info;
+int XpmCreateBufferFromXpmImage( char **buffer_return, XpmImage *image, XpmInfo *info );
 
 .SH ARGUMENTS
-.nf
-display                      Specifies the connection to the X server.
-buffer_return                Returns the buffer which is created.
-image                        Specifies the image.
-shapeimage                   Specifies the shape mask image.
-attributes                   Specifies the location of a structure containing information (or NULL).
-info                         Specifies the location of a structure to get possible information (or NULL).
-.fi
+
+.IP \fIdisplay\fP li
+Specifies the connection to the X server.
+.IP \fIbuffer_return\fP li
+Returns the buffer which is created.
+.IP \fIimage\fP li
+Specifies the image.
+.IP \fIshapeimage\fP li
+Specifies the shape mask image.
+.IP \fIattributes\fP li
+Specifies the location of a structure containing information (or NULL).
+.IP \fIinfo\fP li
+Specifies the location of a structure to get possible information (or NULL).
 
 .SH DESCRIPTION
 

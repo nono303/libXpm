@@ -93,7 +93,7 @@ to the desired color, and uses that.
 If the alloc_close_colors attribute is set to False, the found close color is not allocated but it is used anyway. 
 This is especially useful for applications which use a private colormap containing read/write cells and have 
 complete control over the colormap. 
-On the other hand, since in such a case there is no garanty that the color pixel will not change any time, 
+On the other hand, since in such a case there is no guarantee that the color pixel will not change any time, 
 this should be avoided when using the default colormap. 
 If no color can be found that is within closeness of the Red, Green and Blue components of the desired color, 
 it reverts to trying other default values as explained above. 
@@ -119,7 +119,7 @@ If required it stores into the XpmAttributes structure the list of the used pixe
 When the image depth is one, the image format is either as specified by the bitmap_format attribute if set or ZPixmap. 
 When the depth is different from one the imagae format is always ZPixmap.
 When finished the caller must free the images using XDestroyImage, the allocated colors using 
-XFreeColors or the appication equivalent function when the standard Xlib functions are not used, 
+XFreeColors or the application equivalent function when the standard Xlib functions are not used, 
 and possibly the data returned into the  XpmAttributes using XpmFreeAttributes (page 25).
 In addition, on systems which support such features XpmReadFileToImage deals with compressed files by forking
 an uncompress orgzip process and reading from the piped result. It assumes that the specified file is 

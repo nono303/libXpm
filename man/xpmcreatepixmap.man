@@ -69,7 +69,7 @@ XpmCreatePixmapFromXpmImage creates X images calling XpmCreateImageFromXpmImage 
 the given XpmImage and XpmAttributes, then it creates the related pixmaps which are returned topixmap_return
 and shapemask_return using XPutImage. 
 Finally it destroys the X images with XDestroyImage.
-When finished the caller must free the pixmaps using XFreePixmap, the colors using XFreeColors or the appication
+When finished the caller must free the pixmaps using XFreePixmap, the colors using XFreeColors or the application
 equivalent function when the standard Xlib functions are not used, and possibly the data returned into the
 XpmAttributes using XpmFreeAttributes.
 

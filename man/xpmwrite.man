@@ -86,7 +86,7 @@ And if instead of a file name NULL is passed to XpmWriteFileFromImage, it writes
 To write out a Pixmap to an XPM file, use XpmWriteFileFromPixmap.
 
 If the passed XpmAttributes structure pointer is not NULL, 
-XpmWriteFileFromPixmap looks for the following atributes: XpmSize.
+XpmWriteFileFromPixmap looks for the following attributes: XpmSize.
 If they are not defined it performs an XGetGeometry operation. 
 Then it uses XGetImage to get from the given pixmaps the related X images which are passed to XpmWriteFileFromImage. 
 Finally XpmWriteFileFromPixmap destroys the created images using XDestroyImage. 

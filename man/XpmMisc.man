@@ -23,9 +23,9 @@
 .\" from the X Consortium.
 .\"
 .hw XImage
-.TH  xpmmisc __libmansuffix__ __xorgversion__ "libXpm functions"
+.TH XpmMisc __libmansuffix__ __xorgversion__ "libXpm functions"
 .SH NAME
-Xpmmisc \- xpm misc functions to free used memory and handle errors
+XpmMisc \- xpm misc functions to free used memory and handle errors
 .SH SYNOPSIS
 
 .HP

@@ -65,7 +65,7 @@ Specifies the structure to free
 .SH DESCRIPTION
 
 To free possible data stored into an XpmImage structure use XpmFreeXpmImage.
-The XpmFreeXpmImagefrees the structure members which are not NULL, but not the structure itself.
+The XpmFreeXpmImage function frees the structure members which are not NULL, but not the structure itself.
 To free possible data stored into an XpmInfo structure use XpmFreeXpmInfo.
 
 To free data possibly stored into an array of XpmExtension use XpmFreeExtensions.
@@ -76,7 +76,7 @@ XpmFree is nothing else than a define to the standard free.
 However since these functions may be redefined in specific environments it is wise to use XpmFree.
 
 To free possible data stored into an XpmAttributes structure use XpmFreeAtatributes.
-The XpmFreeAttributes frees the structure members which have been malloc’ed such as the pixels list.
+The XpmFreeAttributes function frees the structure members which have been malloc’ed such as the pixels list.
 
 To dynamically allocate an XpmAttributes structure use the XpmAttributesSize function.
 The XpmAttributesSize function provides application using dynamic libraries with a safe way to allocate and then
@@ -85,7 +85,7 @@ compiled.
 To get data when building an error message, one can use XpmGetErrorString.
 XpmGetErrorString returns a string related to the given XPM error code.
 
-The XpmLibraryVersion can be used when one needs to figure out which version of the library is in use.
+The XpmLibraryVersion function can be used when one needs to figure out which version of the library is in use.
 The value returned by XpmLibraryVersion can be compared to the value of XpmIncludeVersion which is defined
 in the header file "xpm.h". These numbers are computed with the following formula:
 .nf

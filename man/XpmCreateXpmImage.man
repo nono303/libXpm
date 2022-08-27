@@ -59,7 +59,7 @@ Specifies the location of a structure containing information (or NULL).
 .SH DESCRIPTION
 .SS XpmCreateXpmImageFromBuffer
 To create an XpmImage from an XPM buffer, use XpmCreateXpmImageFromBuffer.
-The XpmCreateXpmImageFromBuffer reads the given buffer to fill in the given XpmImage structure.
+The XpmCreateXpmImageFromBuffer function reads the given buffer to fill in the given XpmImage structure.
 If the buffer does not contain valid XPM data, it returns XpmFileInvalid.
 If insufficient working storage is allocated, it returns XpmNoMemory, and returns XpmSuccess on success.
 If the passed XpmInfo structure pointer is not NULL, XpmCreateXpmImageFromBuffer looks for the following attributes:

@@ -63,7 +63,7 @@ and possibly the data returned into the XpmAttributes structure.
 
 .SS XpmCreateImageFromBuffer
 To create an XImage from an XPM buffer, use XpmCreateImageFromBuffer.
-The XpmCreateImageFromBuffer works the same way as XpmReadFileToImage(),
+The XpmCreateImageFromBuffer function works the same way as XpmReadFileToImage(),
 it just parses the buffer instead of the file.
 Be aware that the feature provided on some systems by XpmReadFileToImage
 to deal with compressed files is not available here.

@@ -75,12 +75,12 @@ The current distribution of the XPM library uses the standard memory allocation 
 XpmFree is nothing else than a define to the standard free.
 However since these functions may be redefined in specific environments it is wise to use XpmFree.
 
-To free possible data stored into an XpmAttributes structure use XpmFreeAtatributes.
+To free possible data stored into an XpmAttributes structure use XpmFreeAttributes.
 The XpmFreeAttributes function frees the structure members which have been malloc’ed such as the pixels list.
 
 To dynamically allocate an XpmAttributes structure use the XpmAttributesSize function.
 The XpmAttributesSize function provides application using dynamic libraries with a safe way to allocate and then
-refer to an XpmAttributesstructure, disregarding whether the XpmAttributes structure size has changed or not since
+refer to an XpmAttributes structure, disregarding whether the XpmAttributes structure size has changed or not since
 compiled.
 To get data when building an error message, one can use XpmGetErrorString.
 XpmGetErrorString returns a string related to the given XPM error code.

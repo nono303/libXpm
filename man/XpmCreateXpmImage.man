@@ -75,13 +75,13 @@ at least zero, otherwise unpredictable errors can occur.
 .SS XpmCreateXpmImageFromData
 To create an XpmImage from an XPM data, use XpmCreateXpmImageFromData.
 XpmCreateXpmImageFromData fills in the given XpmImage structure from the given data. If the data does not
-contain validXPM data, it returnsXpmFileInvalid. If insufficient working storage is allocated, it returns
+contain validXPM data, it returns XpmFileInvalid. If insufficient working storage is allocated, it returns
 XpmNoMemory, on success it returns XpmSuccess.
 If the passed XpmInfo structure pointer is not NULL, XpmCreateXpmImageFromData looks for the following attributes:
 XpmReturnExtensions, and sets possibly the XpmHotspot attribute when returning.
 As specified in the table (page 28), if the data related to the attribute
 XpmReturnExtensions cannot be returned as requested because of
-insufficient memory storage,XpmCreateXpmImageFromData will change the valuemask to mention this and will
+insufficient memory storage, XpmCreateXpmImageFromData will change the valuemask to mention this and will
 try to continue.
 So the caller should check on this before accessing requested data.
 
@@ -95,7 +95,7 @@ XpmImage following the same mechanism as XpmWriteFileFromImage.
 
 .SS XpmCreateXpmImageFromPixmap
 To create an XpmImage from a Pixmap, use XpmCreateXpmImageFromPixmap.
-From the given pixmaps and XpmAttributes if not NULL, XpmCreateXpmImageFromPixmap gets the related Ximages
+From the given pixmaps and XpmAttributes if not NULL, XpmCreateXpmImageFromPixmap gets the related XImages
 by calling XGetImage, then it gives them to XpmCreateXpmImageFromImage() to create an
 XpmImage which is returned to xpmimage.
 Finally it destroys the created X images using XDestroyImage.

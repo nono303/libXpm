@@ -65,7 +65,7 @@ The XpmReadFileToImage function reads in a file in the XPM format.
 If the file cannot be opened it returns XpmOpenFailed.
 If the file can be opened but does not contain valid XPM data, it returns XpmFileInvalid.
 If insufficient working storage is allocated, it returns XpmNoMemory.
-If the passedXpmAttributes structure pointer is not NULL, XpmReadFileToImage looks for the following attributes:
+If the passed XpmAttributes structure pointer is not NULL, XpmReadFileToImage looks for the following attributes:
 XpmVisual, XpmColormap, XpmDepth, XpmColorSymbols, XpmExactColors, XpmCloseness,
 XpmRGBCloseness, XpmAllocCloseColors ,XpmReturnPixels, XpmReturnAllocPixels, XpmAllocColor,
 XpmFreeColors, XpmColorClosure, XpmReturnExtensions, XpmReturnColorTable, XpmBitmapFormat,
@@ -117,15 +117,15 @@ XpmReadFileToImage returns the created image to image_return if not NULL and pos
 created shapemask to shapeimage_return if not NULL and the color None is used.
 If required it stores into the XpmAttributes structure the list of the used pixels.
 When the image depth is one, the image format is either as specified by the bitmap_format attribute if set or ZPixmap.
-When the depth is different from one the imagae format is always ZPixmap.
+When the depth is different from one the image format is always ZPixmap.
 When finished the caller must free the images using XDestroyImage, the allocated colors using
 XFreeColors or the application equivalent function when the standard Xlib functions are not used,
 and possibly the data returned into the  XpmAttributes using XpmFreeAttributes (page 25).
 In addition, on systems which support such features XpmReadFileToImage deals with compressed files by forking
-an uncompress orgzip process and reading from the piped result. It assumes that the specified file is
+an uncompress or gzip process and reading from the piped result. It assumes that the specified file is
 compressed if the given file name ends by ’.Z’ or ’.gz’.
 In case the file name does not end so, XpmReadFileToImage looks for the given file name assuming it is not a compressed file.
-And if instead of a file name NULL is passed to XpmReadFile ToImage, it reads from the standard input.
+And if instead of a file name NULL is passed to XpmReadFileToImage, it reads from the standard input.
 
 .SS XpmReadFileToPixmap
 The XpmReadFileToPixmap function creates X images using XpmReadFileToImage and thus returns the same errors.
@@ -138,7 +138,7 @@ XpmAttributes using XpmFreeAttributes.
 .SS XpmReadFileToBuffer
 XpmReadFileToBuffer allocates and fills a buffer from a file.
 XpmReadFileToBuffer returns XpmOpenFailed if it cannot open the file, returns XpmNoMemory if insufficient
-working storage is allocated, andXpmSuccess otherwise. The allocated buffer returned by XpmReadFileToBuffer
+working storage is allocated, and XpmSuccess otherwise. The allocated buffer returned by XpmReadFileToBuffer
 should be freed with XpmFree when done.
 
 .SS XpmReadFileToData
@@ -152,7 +152,7 @@ The XpmReadFileToXpmImage function reads in a file in the XPM format.
 If the file cannot be opened it returns XpmOpenFailed.
 If the file can be opened but does not contain valid  XPMdata,
 it returns XpmFileInvalid.
-If insufficient working storage is allocated, it returnsXpmNoMemory.
+If insufficient working storage is allocated, it returns XpmNoMemory.
 On success it fills in the given XpmImage structure and returns XpmSuccess.
 
 .SH "SEE ALSO"

@@ -55,7 +55,7 @@ Specifies the image
 .SH DESCRIPTION
 .SS XpmCreateDataFromImage
 In some cases, one may want to create an XPM data from an XImage, to do so use XpmCreateDataFromImage.
-The XpmCreateDataFromImage function exactly works asXpmWriteFileFromImage() does and returns the same way.
+The XpmCreateDataFromImage function exactly works as XpmWriteFileFromImage() does and returns the same way.
 It just writes to a single block malloc’ed data instead of to a file.
 It is the caller’s responsibility to free the data, using XpmFree when finished.
 

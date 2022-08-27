@@ -64,7 +64,7 @@ Specifies the buffer to read.
 .SS XpmWriteFileFromImage
 
 The XpmWriteFileFromImage function writes an image and its possible shapeimage out to a file in the XPM format.
-If the file cannot be opened, it returnsXpmOpenFailed.
+If the file cannot be opened, it returns XpmOpenFailed.
 If insufficient working storage is allocated, it returns XpmNoMemory.
 If no error occurs then it returns XpmSuccess.
 If the passed XpmAttributes structure pointer is not NULL,
@@ -79,7 +79,7 @@ Finally, if the XpmRgbFilenameattribute is defined, XpmWriteFileFromImage search
 this file and if found writes them out instead of the rgb values.
 
 In addition on systems which support such features if the given file name ends by ’.Z’ or ’.gz’
-it is assumed to be a compressed file. Then,XpmWriteFileFromImage writes to a pipedcompress or gzip process.
+it is assumed to be a compressed file. Then, XpmWriteFileFromImage writes to a pipedcompress or gzip process.
 And if instead of a file name NULL is passed to XpmWriteFileFromImage, it writes to the standard output.
 
 .SS XpmWriteFileFromPixmap

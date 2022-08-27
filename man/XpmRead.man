@@ -29,15 +29,15 @@ XpmRead \- read an XPM file
 
 .SH SYNOPSIS
 .HP
-int XpmReadFileToImage( Display *display, char *filename, XImage **image_return, XImage **shapeimage_return, XpmAttributes *attributes );
+int XpmReadFileToImage(Display *display, char *filename, XImage **image_return, XImage **shapeimage_return, XpmAttributes *attributes);
 .HP
-int XpmReadFileToPixmap( Display *display, Drawable d, char *filename, Pixmap *pixmap_return, Pixmap *shapemask_return, XpmAttributes *attributes );
+int XpmReadFileToPixmap(Display *display, Drawable d, char *filename, Pixmap *pixmap_return, Pixmap *shapemask_return, XpmAttributes *attributes);
 .HP
-int XpmReadFileToXpmImage( char *filename, XpmImage *image, XpmInfo *info );
+int XpmReadFileToXpmImage(char *filename, XpmImage *image, XpmInfo *info);
 .HP
-int XpmReadFileToBuffer( char *filename, char **buffer_return );
+int XpmReadFileToBuffer(char *filename, char **buffer_return);
 .HP
-int XpmReadFileToData( char *filename, char ***data_return );
+int XpmReadFileToData(char *filename, char ***data_return);
 
 .SH ARGUMENTS
 .IP   \fIdisplay\fP li

@@ -29,11 +29,11 @@ XpmCreateData \- create an Data structure
 
 .SH SYNOPSIS
 .HP
-int XpmCreateDataFromImage( Display *display, char ***data_return, XImage *image, XImage *shapeimage, XpmAttributes *attributes );
+int XpmCreateDataFromImage(Display *display, char ***data_return, XImage *image, XImage *shapeimage, XpmAttributes *attributes);
 .HP
-int XpmCreateDataFromPixmap( Display *display, char ***data_return, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes );
+int XpmCreateDataFromPixmap(Display *display, char ***data_return, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes);
 .HP
-int XpmCreateDataFromXpmImage( char ***data_return, XpmImage *image, XpmInfo *info);
+int XpmCreateDataFromXpmImage(char ***data_return, XpmImage *image, XpmInfo *info);
 
 .SH ARGUMENTS
 

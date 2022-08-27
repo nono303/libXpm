@@ -29,11 +29,11 @@ XpmCreateBuffer  \- create an Xpm-Buffer
 
 .SH SYNOPSIS
 .HP
-int XpmCreateBufferFromImage( Display *display, char **buffer_return, XImage *image, XImage *shapeimage, XpmAttributes *attributes );
+int XpmCreateBufferFromImage(Display *display, char **buffer_return, XImage *image, XImage *shapeimage, XpmAttributes *attributes);
 .HP
-int XpmCreateBufferFromPixmap( Display *display, char **buffer_return, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes );
+int XpmCreateBufferFromPixmap(Display *display, char **buffer_return, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes);
 .HP
-int XpmCreateBufferFromXpmImage( char **buffer_return, XpmImage *image, XpmInfo *info );
+int XpmCreateBufferFromXpmImage(char **buffer_return, XpmImage *image, XpmInfo *info);
 
 .SH ARGUMENTS
 

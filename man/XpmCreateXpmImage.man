@@ -29,13 +29,13 @@ XpmCreateXpmImage \- create an Xpm image
 .SH SYNOPSIS
 
 .HP
-int XpmCreateXpmImageFromData( char **data, XpmImage *image, XpmInfo*info );
+int XpmCreateXpmImageFromData(char **data, XpmImage *image, XpmInfo *info);
 .HP
-int XpmCreateXpmImageFromBuffer( char *buffer, XpmImage *image, XpmInfo *info );
+int XpmCreateXpmImageFromBuffer(char *buffer, XpmImage *image, XpmInfo *info);
 .HP
-int XpmCreateXpmImageFromImage( Display *display, XImage *image, XImage *shapeimage, XpmImage *xpmimage, XpmAttributes *attributes;
+int XpmCreateXpmImageFromImage(Display *display, XImage *image, XImage *shapeimage, XpmImage *xpmimage, XpmAttributes *attributes);
 .HP
-int XpmCreateXpmImageFromPixmap( Display *display, Pixmap *pixmap, Pixmap *shapemask, XpmImage *xpmimage, XpmAttributes *attributes );
+int XpmCreateXpmImageFromPixmap(Display *display, Pixmap *pixmap, Pixmap *shapemask, XpmImage *xpmimage, XpmAttributes *attributes);
 
 .SH ARGUMENTS
 

@@ -29,15 +29,15 @@ XpmWrite \- write an XPM file
 
 .SH SYNOPSIS
 .HP
-int XpmWriteFileFromPixmap( Display *display, char *filename, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes );
+int XpmWriteFileFromPixmap(Display *display, char *filename, Pixmap pixmap, Pixmap shapemask, XpmAttributes *attributes);
 .HP
-int XpmWriteFileFromImage( Display *display, char *filename, XImage *image, XImage *shapeimage, XpmAttributes *attributes );
+int XpmWriteFileFromImage(Display *display, char *filename, XImage *image, XImage *shapeimage, XpmAttributes *attributes);
 .HP
-int XpmWriteFileFromData( char *filename, char **data );
+int XpmWriteFileFromData(char *filename, char **data);
 .HP
-int XpmWriteFileFromXpmImage( char *filename, XpmImage *image, XImage *shapeimage, XpmInfo *info );
+int XpmWriteFileFromXpmImage(char *filename, XpmImage *image, XImage *shapeimage, XpmInfo *info);
 .HP
-int XpmWriteFileFromBuffer( char *filename,  char *buffer );
+int XpmWriteFileFromBuffer(char *filename,  char *buffer);
 
 .SH ARGUMENTS
 

@@ -29,21 +29,21 @@ XpmMisc \- xpm misc functions to free used memory and handle errors
 .SH SYNOPSIS
 
 .HP
-int XpmFreeXpmImage( XpmImage *image );
+int XpmFreeXpmImage(XpmImage *image);
 .HP
-int XpmFreeXpmInfo( XpmInfo *info );
+int XpmFreeXpmInfo(XpmInfo *info);
 .HP
-int XpmFreeAttributes( XpmAttributes *attributes );
+int XpmFreeAttributes(XpmAttributes *attributes);
 .HP
-int XpmAttributesSize()
+int XpmAttributesSize();
 .HP
-int XpmFreeExtensions( XpmExtension *extensions,  int nextensions );
+int XpmFreeExtensions(XpmExtension *extensions,  int nextensions);
 .HP
-int XpmFree( char *ptr );
+int XpmFree(char *ptr);
 .HP
-char *XpmGetErrorString( int errorcode );
+char *XpmGetErrorString(int errorcode);
 .HP
-int XpmLibraryVersion()
+int XpmLibraryVersion();
 
 .SH ARGUMENTS
 

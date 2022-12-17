@@ -52,6 +52,9 @@ return XpmFileInvalid when parsed.
 
 - no-contents.xpm - This file has a valid header but no contents
 
+- unending-comment-c.xpm - This file has a C comment block without the
+  closing "*/" to test for CVE-2022-46285
+
 no-mem
 ------
 

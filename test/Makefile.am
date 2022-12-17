@@ -92,5 +92,6 @@ EXTRA_DIST = \
 	pixmaps/invalid/doom2.xpm \
 	pixmaps/invalid/invalid-type.xpm \
 	pixmaps/invalid/no-contents.xpm \
+	pixmaps/invalid/unending-comment-c.xpm \
 	pixmaps/no-mem/oversize.xpm \
 	tap-test

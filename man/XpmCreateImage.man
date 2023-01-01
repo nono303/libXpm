@@ -76,6 +76,5 @@ the colors using XFreeColors, and possibly the
 data returned into the XpmAttributes using XpmFreeAttributes().
 
 .SH "SEE ALSO"
-.BR XpmCreateImageFromBuffer(__libmansuffix__) ,
-.BR XpmCreateImageFromData(__libmansuffix__) ,
-.BR XpmCreateImageFromXpmImage(__libmansuffix__)
+.BR XpmFreeAttributes (__libmansuffix__),
+.BR XpmReadFileToImage (__libmansuffix__)

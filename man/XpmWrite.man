@@ -122,8 +122,4 @@ since the parsing will be performed in memory, but it uses more memory.
 
 
 .SH "SEE ALSO"
-.BR XpmWriteFileFromData(__libmansuffix__) ,
-.BR XpmWriteFileFromPixmap(__libmansuffix__) ,
-.BR XpmWriteFileFromImage(__libmansuffix__) ,
-.BR XpmWriteFileFromXpmImage(__libmansuffix__) ,
-.BR XpmWriteFileFromBuffer(__libmansuffix__)
+.BR XpmRead (__libmansuffix__)

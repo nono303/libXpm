@@ -73,6 +73,8 @@ equivalent function when the standard Xlib functions are not used, and possibly 
 XpmAttributes using XpmFreeAttributes.
 
 .SH "SEE ALSO"
-.BR XpmCreatePixmapFromBuffer(__libmansuffix__) ,
-.BR XpmCreatePixmapFromData(__libmansuffix__) ,
-.BR XpmCreatePixmapFromXpmImage(__libmansuffix__)
+.BR XpmCreateImageFromData (__libmansuffix__),
+.BR XpmCreateImageFromXpmImage (__libmansuffix__),
+.BR XpmFreeAttributes (__libmansuffix__),
+.BR XpmReadFileToPixmap (__libmansuffix__)
+

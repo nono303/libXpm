@@ -101,7 +101,9 @@ Finally it destroys the created X images using XDestroyImage.
 
 
 .SH "SEE ALSO"
-.BR XpmCreateXpmImageFromBuffer(__libmansuffix__) ,
-.BR XpmCreateXpmImageFromData(__libmansuffix__) ,
-.BR XpmCreateXpmImageFromImage(__libmansuffix__) ,
-.BR XpmCreateXpmImageFromPixmap(__libmansuffix__)
+.BR XpmFreeXpmImage (__libmansuffix__),
+.BR XpmReadFileToBuffer (__libmansuffix__),
+.BR XpmReadFileToData (__libmansuffix__),
+.BR XpmReadFileToImage (__libmansuffix__),
+.BR XpmReadFileToPixmap (__libmansuffix__),
+.BR XpmWriteFileFromImage (__libmansuffix__)

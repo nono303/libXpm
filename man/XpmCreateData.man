@@ -74,6 +74,5 @@ XpmExtensions, and XpmHotspot, and writes the related information out as well.
 It is the caller’s responsibility to free the data, using XpmFree when finished.
 
 .SH "SEE ALSO"
-.BR XpmCreateDataFromImage(__libmansuffix__) ,
-.BR XpmCreateDataFromPixmap(__libmansuffix__) ,
-.BR XpmCreateDataFromXpmImage(__libmansuffix__)
+.BR XpmFree (__libmansuffix__),
+.BR XpmWriteFileFromImage (__libmansuffix__)

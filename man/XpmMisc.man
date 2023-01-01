@@ -97,11 +97,10 @@ The XpmFreeExtensions function frees all data stored in every extension and the 
 Note that XpmFreeAttributes call this function and thus most of the time it should not need to be explicitly called.
 
 .SH "SEE ALSO"
-.BR XpmLibraryVersion(__libmansuffix__) ,
-.BR XpmGetErrorString(__libmansuffix__) ,
-.BR XpmFree(__libmansuffix__) ,
-.BR XpmFreeExtensions(__libmansuffix__) ,
-.BR XpmAttributesSize(__libmansuffix__) ,
-.BR XpmFreeAttributes(__libmansuffix__) ,
-.BR XpmFreeXpmImage(__libmansuffix__) ,
-.BR XpmFreeXpmInfo(__libmansuffix__)
+.BR XpmCreateBuffer (__libmansuffix__),
+.BR XpmCreateData (__libmansuffix__),
+.BR XpmCreateImage (__libmansuffix__),
+.BR XpmCreatePixmap (__libmansuffix__),
+.BR XpmCreateXpmImage (__libmansuffix__),
+.BR XpmRead (__libmansuffix__),
+.BR XpmWrite (__libmansuffix__)

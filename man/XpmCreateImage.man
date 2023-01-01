@@ -24,7 +24,7 @@
 .hw XImage
 .TH  XpmCreateImage __libmansuffix__ __xorgversion__ "libXpm functions"
 .SH NAME
-XpmCreateImage \- create an Xpm-image
+XpmCreateImage \- create an XImage from an XPM
 .SH SYNOPSIS
 .HP
 int XpmCreateImageFromData(Display *display, char **data, XImage **image_return, XImage **shapeimage_return, XpmAttributes *attributes);

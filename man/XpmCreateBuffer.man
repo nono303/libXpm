@@ -24,7 +24,7 @@
 .hw XImage
 .TH XpmCreateBuffer __libmansuffix__ __xorgversion__ "libXpm functions"
 .SH NAME
-XpmCreateBuffer  \- create an Xpm-Buffer
+XpmCreateBuffer  \- create an XPM Buffer
 
 .SH SYNOPSIS
 .HP
@@ -59,8 +59,9 @@ XpmFree when finished.
 
 As a convenience, the XpmReadFileToBuffer and XpmWriteFileFromBuffer functions
 are provided to copy a file to a buffer
-and to write a file from a buffer. Thus for instance one may decide to use XpmReadFileToBuffer,
-XpmCreatePixmapFromBuffer, and XpmFree instead of XpmReadFileToPixmap. On some systems this may lead to a
+and to write a file from a buffer. Thus for instance one may decide to use
+XpmCreateBufferFromPixmap, XpmWriteFileFromBuffer, and XpmFree instead of
+XpmWriteFileFromPixmap. On some systems this may lead to a
 performance improvement, since the parsing will be performed in memory, but it uses more memory.
 
 .SS XpmCreateBufferFromImage
@@ -69,7 +70,7 @@ The caller should free the buffer using XpmFree when finished.
 
 .SS XpmCreateBufferFromXpmImage.
 To create an XPM buffer from an XpmImage, use XpmCreateBufferFromXpmImage.
-The XpmCreateBufferFromXpmImage function writes out the givenimage to a single block malloc’ed buffer inXPM format.
+The XpmCreateBufferFromXpmImage function writes out the given image to a single block malloc’ed buffer in XPM format.
 If insufficient working storage is allocated, it returns XpmNoMemory, and returns XpmSuccess on success.
 If the passed XpmInfo structure pointer is not NULL, XpmCreateBufferFromXpmImage looks for the following
 attributes: XpmComments, XpmExtensions, and XpmHotspot, and writes the related information out as well.

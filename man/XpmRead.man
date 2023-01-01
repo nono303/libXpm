@@ -66,7 +66,7 @@ If the file can be opened but does not contain valid XPM data, it returns XpmFil
 If insufficient working storage is allocated, it returns XpmNoMemory.
 If the passed XpmAttributes structure pointer is not NULL, XpmReadFileToImage looks for the following attributes:
 XpmVisual, XpmColormap, XpmDepth, XpmColorSymbols, XpmExactColors, XpmCloseness,
-XpmRGBCloseness, XpmAllocCloseColors ,XpmReturnPixels, XpmReturnAllocPixels, XpmAllocColor,
+XpmRGBCloseness, XpmAllocCloseColors, XpmReturnPixels, XpmReturnAllocPixels, XpmAllocColor,
 XpmFreeColors, XpmColorClosure, XpmReturnExtensions, XpmReturnColorTable, XpmBitmapFormat,
 sets the XpmSize, the XpmCharsPerPixel, and possibly the XpmHotspot attributes when returning.
 As a backward compatibility feature, XpmReadFileToImage also looks for the XpmReturnInfos attributes.
@@ -81,8 +81,8 @@ unpredictable errors can occur.
 XpmReadFileToImage allocates colors, as read from the file or possibly overridden as specified in the
 XpmColorSymbols attributes.
 The colors are allocated using the color settings for the visual specified by the XpmColorKey
-attribute, which has the value XPM_MONO, XPM_GRAY4, XPM_GRAY,or XPM_COLOR.
-If the XpmColor-Key attribute is not set it is determined by examining the type of visual.
+attribute, which has the value XPM_MONO, XPM_GRAY4, XPM_GRAY, or XPM_COLOR.
+If the XpmColorKey attribute is not set it is determined by examining the type of visual.
 If no default value exists for the specified visual, it first looks for other defaults nearer to the monochrome visual type
 and secondly nearer to the color visual type.
 If the color which is found is not valid (cannot be parsed), it looks for
@@ -140,16 +140,23 @@ XpmReadFileToBuffer returns XpmOpenFailed if it cannot open the file, returns Xp
 working storage is allocated, and XpmSuccess otherwise. The allocated buffer returned by XpmReadFileToBuffer
 should be freed with XpmFree when done.
 
+As a convenience, the XpmReadFileToBuffer and XpmWriteFileFromBuffer functions
+are provided to copy a file to a buffer and to write a file from a buffer.
+Thus for instance one may decide to use XpmReadFileToBuffer,
+XpmCreatePixmapFromBuffer, and XpmFree instead of XpmReadFileToPixmap.
+On some systems this may lead to a performance improvement,
+since the parsing will be performed in memory, but it uses more memory.
+
 .SS XpmReadFileToData
 XpmReadFileToData returns XpmOpenFailed if it cannot open the file,
 XpmNoMemory if insufficient working storage is allocated,
-XpmFileInvalid if this is not a validXPM file, and XpmSuccess otherwise.
+XpmFileInvalid if this is not a valid XPM file, and XpmSuccess otherwise.
 The allocated data returned by XpmReadFileToData should be freed with XpmFree when done.
 
 .SS XpmReadFileToXpmImage
 The XpmReadFileToXpmImage function reads in a file in the XPM format.
 If the file cannot be opened it returns XpmOpenFailed.
-If the file can be opened but does not contain valid  XPMdata,
+If the file can be opened but does not contain valid XPM data,
 it returns XpmFileInvalid.
 If insufficient working storage is allocated, it returns XpmNoMemory.
 On success it fills in the given XpmImage structure and returns XpmSuccess.

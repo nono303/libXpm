@@ -78,7 +78,7 @@ Finally, if the XpmRgbFilenameattribute is defined, XpmWriteFileFromImage search
 this file and if found writes them out instead of the rgb values.
 
 In addition on systems which support such features if the given file name ends by ’.Z’ or ’.gz’
-it is assumed to be a compressed file. Then, XpmWriteFileFromImage writes to a pipedcompress or gzip process.
+it is assumed to be a compressed file. Then, XpmWriteFileFromImage writes to a piped compress or gzip process.
 And if instead of a file name NULL is passed to XpmWriteFileFromImage, it writes to the standard output.
 
 .SS XpmWriteFileFromPixmap
@@ -110,14 +110,16 @@ compressed file. Then, XpmWriteFileFromXpmImage writes to a piped compress or gz
 of a file name NULL is passed to XpmWriteFileFromXpmImage, it writes to the standard output.
 
 .SS XpmWriteFileFromBuffer
-XpmWriteFileFromBuffer writes a XPM-buffer to a file.
+XpmWriteFileFromBuffer writes a XPM buffer to a file.
 XpmWriteFileFromBuffer returns XpmOpenFailed if it cannot open the file, and XpmSuccess otherwise.
 
-As a convenience, the XpmReadFileToBuffer and XpmWriteFileFromBuffer are provided to copy a
-file to a buffer and to write a file from a buffer.
-Thus for instance one may decide to use XpmReadFileToBuffer, XpmCreatePixmapFromBuffer, and XpmFree
-instead of XpmReadFileToPixmap. On some systems this may lead to a performance improvement,
+As a convenience, the XpmReadFileToBuffer and XpmWriteFileFromBuffer functions
+are provided to copy a file to a buffer and to write a file from a buffer.
+Thus for instance one may decide to use XpmCreateBufferFromPixmap,
+XpmWriteFileFromBuffer, and XpmFree instead of XpmWriteFileFromPixmap.
+On some systems this may lead to a performance improvement,
 since the parsing will be performed in memory, but it uses more memory.
+
 
 .SH "SEE ALSO"
 .BR XpmWriteFileFromData(__libmansuffix__) ,

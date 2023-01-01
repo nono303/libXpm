@@ -66,7 +66,7 @@ Then it destroys the created images using XDestroyImage.
 XpmCreateDataFromPixmap returns the same errors as XpmCreateDataFromImage.
 
 .SS XpmCreateDataFromXpmImage
-XpmCreateDataFromXpmImage creates an XPM data from an XmImage.
+XpmCreateDataFromXpmImage creates an XPM data from an XpmImage.
 The XpmCreateDataFromXpmImage function writes out the given image to a single block malloc’ed data in XPM format.
 If insufficient working storage is allocated, it returns XpmNoMemory, and returns XpmSuccess on success.
 If the passed XpmInfo structure pointer is not NULL, XpmCreateDataFromXpmImage looks for the following attributes:

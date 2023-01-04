@@ -55,6 +55,9 @@ return XpmFileInvalid when parsed.
 - unending-comment-c.xpm - This file has a C comment block without the
   closing "*/" to test for CVE-2022-46285
 
+- zero-width.xpm & zero-width-v1.xpm - These files declare a width of 0
+  and a height of nearly UINT_MAX, to test for CVE-2022-44617
+
 no-mem
 ------
 

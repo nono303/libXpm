@@ -93,5 +93,7 @@ EXTRA_DIST = \
 	pixmaps/invalid/invalid-type.xpm \
 	pixmaps/invalid/no-contents.xpm \
 	pixmaps/invalid/unending-comment-c.xpm \
+	pixmaps/invalid/zero-width.xpm \
+	pixmaps/invalid/zero-width-v1.xpm \
 	pixmaps/no-mem/oversize.xpm \
 	tap-test

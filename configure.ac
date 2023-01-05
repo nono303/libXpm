@@ -49,24 +49,34 @@ if test "x$USE_GETTEXT" = "xyes" ; then
 fi
 AM_CONDITIONAL(USE_GETTEXT, test "x$USE_GETTEXT" = "xyes")
 
-# Optional feature: When ___.xpm is requested, also look for ___.xpm.Z & .gz
-# Replaces ZFILEDEF = -DSTAT_ZFILE in old Imakefile
-AC_ARG_ENABLE(stat-zfile,
-	AS_HELP_STRING([--enable-stat-zfile],
-			[Search for files with .Z & .gz extensions automatically @<:@default=yes@:>@]),
-              [STAT_ZFILE=$enableval], [STAT_ZFILE=yes])
-if test x$STAT_ZFILE = xyes ; then
-	AC_DEFINE(STAT_ZFILE, 1, [Define to 1 to automatically look for files with .Z & .gz extensions])
+# Optional feature: When a filename ending in .Z or .gz is requested,
+# open a pipe to a newly forked compress/uncompress/gzip/gunzip command to
+# handle it.
+AC_MSG_CHECKING([whether to handle compressed pixmaps])
+case $host_os in
+        *mingw*)        zpipe_default="no" ;;
+        *)              zpipe_default="yes" ;;
+esac
+AC_ARG_ENABLE(open-zfile,
+        AS_HELP_STRING([--enable-open-zfile],
+                        [Search for files with .Z & .gz extensions automatically @<:@default=auto@:>@]),
+              [OPEN_ZFILE=$enableval], [OPEN_ZFILE=yes])
+AC_MSG_RESULT([$OPEN_ZFILE])
+if test x$OPEN_ZFILE = xno ; then
+        AC_DEFINE(NO_ZPIPE, 1, [Define to 1 to disable decompression via pipes])
 fi
 
-
-case $host_os in
-	*mingw*)
-                AC_DEFINE(NO_ZPIPE, 1, [Define to 1 to disable decompression via pipes])
-	;;
-	*)
-	;;
-esac
+# Optional feature: When ___.xpm is requested, also look for ___.xpm.Z & .gz
+# Replaces ZFILEDEF = -DSTAT_ZFILE in old Imakefile
+AC_MSG_CHECKING([whether to search for compressed pixmaps])
+AC_ARG_ENABLE(stat-zfile,
+        AS_HELP_STRING([--enable-stat-zfile],
+                        [Search for files with .Z & .gz extensions automatically @<:@default=auto@:>@]),
+              [STAT_ZFILE=$enableval], [STAT_ZFILE=$OPEN_ZFILE])
+AC_MSG_RESULT([$STAT_ZFILE])
+if test x$STAT_ZFILE = xyes ; then
+        AC_DEFINE(STAT_ZFILE, 1, [Define to 1 to automatically look for files with .Z & .gz extensions])
+fi
 
 AC_CONFIG_FILES([Makefile
                  doc/Makefile

@@ -31,3 +31,15 @@ if it can't find the file it was asked to open.  It relies on the
 --enable-open-zfile feature to open the file, and is enabled by default
 when --enable-open-zfile is enabled, and can be disabled by passing the
 --disable-stat-zfile flag to the configure script.
+
+All of these commands will be executed with whatever userid & privileges the
+function is called with, relying on the caller to ensure the correct euid,
+egid, etc. are set before calling.
+
+To reduce risk, the paths to these commands are now set at configure time to
+the first version found in the PATH used to run configure, and do not depend
+on the PATH environment variable set at runtime.
+
+To specify paths to be used for these commands instead of searching $PATH, pass
+the XPM_PATH_COMPRESS, XPM_PATH_UNCOMPRESS, XPM_PATH_GZIP, and XPM_PATH_GUNZIP
+variables to the configure command.

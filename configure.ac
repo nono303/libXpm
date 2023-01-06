@@ -49,6 +49,14 @@ if test "x$USE_GETTEXT" = "xyes" ; then
 fi
 AM_CONDITIONAL(USE_GETTEXT, test "x$USE_GETTEXT" = "xyes")
 
+dnl Helper macro to find absolute path to program and add a #define for it
+AC_DEFUN([XPM_PATH_PROG],[
+AC_PATH_PROG([$1], [$2], [])
+AS_IF([test "x$$1" = "x"],
+      [AC_MSG_ERROR([$2 not found, set $1 or use --disable-stat-zfile])])
+AC_DEFINE_UNQUOTED([$1], ["$$1"], [Path to $2])
+]) dnl End of AC_DEFUN([XPM_PATH_PROG]...
+
 # Optional feature: When a filename ending in .Z or .gz is requested,
 # open a pipe to a newly forked compress/uncompress/gzip/gunzip command to
 # handle it.
@@ -65,6 +73,12 @@ AC_MSG_RESULT([$OPEN_ZFILE])
 AM_CONDITIONAL(COMPRESSED_PIXMAPS, test "x$OPEN_ZFILE" = "xyes")
 if test x$OPEN_ZFILE = xno ; then
         AC_DEFINE(NO_ZPIPE, 1, [Define to 1 to disable decompression via pipes])
+else
+        XPM_PATH_PROG([XPM_PATH_COMPRESS], [compress])
+        XPM_PATH_PROG([XPM_PATH_UNCOMPRESS], [uncompress])
+        XPM_PATH_PROG([XPM_PATH_GZIP], [gzip])
+        XPM_PATH_PROG([XPM_PATH_GUNZIP], [gunzip])
+        AC_CHECK_FUNCS([closefrom close_range], [break])
 fi
 
 # Optional feature: When ___.xpm is requested, also look for ___.xpm.Z & .gz

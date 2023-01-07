@@ -13,10 +13,10 @@ AM_INIT_AUTOMAKE([foreign dist-xz])
 # Initialize libtool
 AC_PROG_LIBTOOL
 
-# Require X.Org macros 1.8 or later for MAN_SUBSTS set by XORG_MANPAGE_SECTIONS
+# Require X.Org macros 1.16 or later for XORG_MEMORY_CHECK_FLAGS
 m4_ifndef([XORG_MACROS_VERSION],
-          [m4_fatal([must install xorg-macros 1.8 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.8)
+          [m4_fatal([must install xorg-macros 1.16 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.16)
 XORG_DEFAULT_OPTIONS
 
 # Checks for library functions
@@ -62,6 +62,7 @@ AC_ARG_ENABLE(open-zfile,
                         [Search for files with .Z & .gz extensions automatically @<:@default=auto@:>@]),
               [OPEN_ZFILE=$enableval], [OPEN_ZFILE=yes])
 AC_MSG_RESULT([$OPEN_ZFILE])
+AM_CONDITIONAL(COMPRESSED_PIXMAPS, test "x$OPEN_ZFILE" = "xyes")
 if test x$OPEN_ZFILE = xno ; then
         AC_DEFINE(NO_ZPIPE, 1, [Define to 1 to disable decompression via pipes])
 fi
@@ -78,6 +79,12 @@ if test x$STAT_ZFILE = xyes ; then
         AC_DEFINE(STAT_ZFILE, 1, [Define to 1 to automatically look for files with .Z & .gz extensions])
 fi
 
+# --enable-unit-tests
+AC_REQUIRE_AUX_FILE([tap-driver.sh])
+XORG_ENABLE_UNIT_TESTS
+XORG_WITH_GLIB([2.46])
+XORG_MEMORY_CHECK_FLAGS
+
 AC_CONFIG_FILES([Makefile
                  doc/Makefile
                  include/Makefile
@@ -85,5 +92,6 @@ AC_CONFIG_FILES([Makefile
                  src/Makefile
                  sxpm/Makefile
                  cxpm/Makefile
+                 test/Makefile
                  xpm.pc])
 AC_OUTPUT

@@ -251,7 +251,7 @@ OpenReadFile(
 	else if ( ext && !strcmp(ext, ".gz") )
 	{
 	    mdata->type = XPMPIPE;
-	    mdata->stream.file = xpmPipeThrough(fd, XPM_PATH_GUNZIP, "-qc", "r");
+	    mdata->stream.file = xpmPipeThrough(fd, XPM_PATH_GZIP, "-dqc", "r");
 	}
 	else
 #endif /* z-files */

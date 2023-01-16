@@ -41,5 +41,5 @@ the first version found in the PATH used to run configure, and do not depend
 on the PATH environment variable set at runtime.
 
 To specify paths to be used for these commands instead of searching $PATH, pass
-the XPM_PATH_COMPRESS, XPM_PATH_UNCOMPRESS, XPM_PATH_GZIP, and XPM_PATH_GUNZIP
+the XPM_PATH_COMPRESS, XPM_PATH_UNCOMPRESS, and XPM_PATH_GZIP
 variables to the configure command.

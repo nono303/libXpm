@@ -58,7 +58,7 @@ AC_DEFINE_UNQUOTED([$1], ["$$1"], [Path to $2])
 ]) dnl End of AC_DEFUN([XPM_PATH_PROG]...
 
 # Optional feature: When a filename ending in .Z or .gz is requested,
-# open a pipe to a newly forked compress/uncompress/gzip/gunzip command to
+# open a pipe to a newly forked compress/uncompress/gzip command to
 # handle it.
 AC_MSG_CHECKING([whether to handle compressed pixmaps])
 case $host_os in
@@ -77,7 +77,6 @@ else
         XPM_PATH_PROG([XPM_PATH_COMPRESS], [compress])
         XPM_PATH_PROG([XPM_PATH_UNCOMPRESS], [uncompress])
         XPM_PATH_PROG([XPM_PATH_GZIP], [gzip])
-        XPM_PATH_PROG([XPM_PATH_GUNZIP], [gunzip])
         AC_CHECK_FUNCS([closefrom close_range], [break])
 fi
 

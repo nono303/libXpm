@@ -53,7 +53,7 @@ dnl Helper macro to find absolute path to program and add a #define for it
 AC_DEFUN([XPM_PATH_PROG],[
 AC_PATH_PROG([$1], [$2], [])
 AS_IF([test "x$$1" = "x"],
-      [AC_MSG_ERROR([$2 not found, set $1 or use --disable-stat-zfile])])
+      [AC_MSG_ERROR([$2 not found, set $1 or use --disable-open-zfile])])
 AC_DEFINE_UNQUOTED([$1], ["$$1"], [Path to $2])
 ]) dnl End of AC_DEFUN([XPM_PATH_PROG]...
 

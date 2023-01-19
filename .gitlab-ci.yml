@@ -83,7 +83,7 @@ container-prep:
 #
 # The default build, runs on the image built above.
 #
-build:
+.default_build:
   stage: build
   extends:
     - .fdo.distribution-image@arch
@@ -91,12 +91,20 @@ build:
     - autoreconf -ivf
     - mkdir _builddir
     - pushd _builddir > /dev/null
-    - ../configure --disable-silent-rules --enable-unit-tests
+    - ../configure --disable-silent-rules --enable-unit-tests ${ZOPEN_FLAG}
     - make
     - make check
-    - make distcheck
+    - make distcheck DISTCHECK_CONFIGURE_FLAGS="${ZOPEN_FLAG}"
     - popd > /dev/null
   artifacts:
     when: on_failure
     paths:
       - _builddir/test/*.log
+
+# Run default build with all different options
+build:
+  extends:
+    - .default_build
+  parallel:
+    matrix:
+      - ZOPEN_FLAG: ["--enable-open-zfile", "--disable-open-zfile"]

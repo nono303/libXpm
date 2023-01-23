@@ -524,6 +524,7 @@ do \
 	    for (y = 0; y < height; y++) {
 		ErrorStatus = xpmNextString(data);
 		if (ErrorStatus != XpmSuccess) {
+		    FREE_CIDX;
 		    XpmFree(iptr2);
 		    return (ErrorStatus);
 		}

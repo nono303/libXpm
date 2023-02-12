@@ -11,7 +11,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([foreign dist-xz])
 
 # Initialize libtool
-AC_PROG_LIBTOOL
+LT_INIT
 
 # Require X.Org macros 1.16 or later for XORG_MEMORY_CHECK_FLAGS
 m4_ifndef([XORG_MACROS_VERSION],

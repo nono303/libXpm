@@ -69,3 +69,16 @@ return XpmNoMemory when parsed.
 
 - oversize.xpm - This file specifies more pixels than can be mapped in
   a 64-bit address space that already has programs & libraries mapped in.
+
+other
+-----
+
+Those under the `other` subdirectory don't fit cleanly in any of the above
+categories, and may be valid for some uses but not others, and thus can't be
+easily used in the current test framework, but are still interesting cases.
+
+- overflow-stackexhaustion.xpm - This file was provided by Yair Mizrahi of
+  the JFrog Vulnerability Research team as a test for CVE-2023-43786.
+  It is a valid XPM file, but is larger than fits into an X Pixmap, so
+  should pass with many functions, but fail when used with sxpm or
+  anything that calls through to xpmCreatePixmapFromImage().

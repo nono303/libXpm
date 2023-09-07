@@ -195,7 +195,7 @@ HFUNC(xpmSetAttributes, void, (XpmAttributes *attributes, XpmImage *image,
 			      XpmInfo *info));
 
 #if !defined(FOR_MSW) && !defined(AMIGA)
-HFUNC(xpmCreatePixmapFromImage, void, (Display *display, Drawable d,
+HFUNC(xpmCreatePixmapFromImage, int, (Display *display, Drawable d,
 				      XImage *ximage, Pixmap *pixmap_return));
 
 HFUNC(xpmCreateImageFromPixmap, void, (Display *display, Pixmap pixmap,

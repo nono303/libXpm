@@ -997,6 +997,11 @@ CreateXImage(
 	*image_return = NULL;
 	return XpmNoMemory;
     }
+    if (width != 0 && (*image_return)->bits_per_pixel >= INT_MAX / width) {
+	XDestroyImage(*image_return);
+	*image_return = NULL;
+	return XpmNoMemory;
+    }
     /* now that bytes_per_line must have been set properly alloc data */
     if((*image_return)->bytes_per_line == 0 ||  height == 0) {
 	XDestroyImage(*image_return);

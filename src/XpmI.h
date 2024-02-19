@@ -52,10 +52,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
-/* stdio.h doesn't declare popen on a Sequent DYNIX OS */
-#ifdef sequent
-extern FILE *popen();
-#endif
 
 #ifdef FOR_MSW
 #include "simx.h"

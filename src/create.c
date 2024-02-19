@@ -116,33 +116,6 @@ LFUNC(PutPixel8, int, (XImage *ximage, int x, int y, unsigned long pixel));
 LFUNC(PutPixel1MSB, int, (XImage *ximage, int x, int y, unsigned long pixel));
 LFUNC(PutPixel1LSB, int, (XImage *ximage, int x, int y, unsigned long pixel));
 
-#ifdef NEED_STRCASECMP
-FUNC(xpmstrcasecmp, int, (char *s1, char *s2));
-
-/*
- * in case strcasecmp is not provided by the system here is one
- * which does the trick
- */
-int
-xpmstrcasecmp(
-    register char	*s1,
-    register char	*s2)
-{
-    register int c1, c2;
-
-    while (*s1 && *s2) {
-	c1 = tolower(*s1);
-	c2 = tolower(*s2);
-	if (c1 != c2)
-	    return (c1 - c2);
-	s1++;
-	s2++;
-    }
-    return (int) (*s1 - *s2);
-}
-
-#endif
-
 /*
  * return the default color key related to the given visual
  */
@@ -410,7 +383,7 @@ SetColor(
     XColor xcolor;
     int status;
 
-    if (xpmstrcasecmp(colorname, TRANSPARENT_COLOR)) {
+    if (strcasecmp(colorname, TRANSPARENT_COLOR)) {
 	status = (*allocColor)(display, colormap, colorname, &xcolor, closure);
 	if (status < 0)		/* parse color failed */
 	    return (1);
@@ -581,7 +554,7 @@ CreateColors(
 		    }
 		    if (def_index >= 2 && def_index <= 5 &&
 			defaults[def_index] != NULL &&
-			!xpmstrcasecmp(symbol->value, defaults[def_index]))
+			!strcasecmp(symbol->value, defaults[def_index]))
 			break;
 		}
 	    }
@@ -649,7 +622,7 @@ CreateColors(
 	    /* the following makes the mask to be built even if none
 	       is given a particular pixel */
 	    if (symbol->value
-		&& !xpmstrcasecmp(symbol->value, TRANSPARENT_COLOR)) {
+		&& !strcasecmp(symbol->value, TRANSPARENT_COLOR)) {
 		*mask_pixels = 0;
 		*mask_pixel_index = color;
 	    } else

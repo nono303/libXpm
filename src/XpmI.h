@@ -47,6 +47,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <strings.h>
 
 #include <X11/Xos.h>
 #include <X11/Xfuncs.h>
@@ -295,14 +296,6 @@ HFUNC(xpmstrdup, char *, (char *s1));
 #undef xpmstrdup
 #define xpmstrdup strdup
 #include <string.h>
-#endif
-
-#ifdef NEED_STRCASECMP
-HFUNC(xpmstrcasecmp, int, (char *s1, char *s2));
-#else
-#undef xpmstrcasecmp
-#define xpmstrcasecmp strcasecmp
-#include <strings.h>
 #endif
 
 HFUNC(xpmatoui, unsigned int,

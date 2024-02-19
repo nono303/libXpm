@@ -47,6 +47,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <string.h>
 #include <strings.h>
 
 #include <X11/Xos.h>
@@ -289,14 +290,6 @@ HFUNC(xpm_znormalizeimagebits, void, (register unsigned char *bp,
 #define ZINDEX8(x, y, img) ((y) * img->bytes_per_line) + (x)
 
 #define ZINDEX1(x, y, img) ((y) * img->bytes_per_line) + ((x) >> 3)
-
-#ifdef NEED_STRDUP
-HFUNC(xpmstrdup, char *, (char *s1));
-#else
-#undef xpmstrdup
-#define xpmstrdup strdup
-#include <string.h>
-#endif
 
 HFUNC(xpmatoui, unsigned int,
      (char *p, unsigned int l, unsigned int *ui_return));

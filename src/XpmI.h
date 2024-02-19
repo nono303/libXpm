@@ -188,7 +188,7 @@ HFUNC(xpmSetInfo, void, (XpmInfo *info, XpmAttributes *attributes));
 HFUNC(xpmSetAttributes, void, (XpmAttributes *attributes, XpmImage *image,
 			      XpmInfo *info));
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
 HFUNC(xpmCreatePixmapFromImage, int, (Display *display, Drawable d,
 				      XImage *ximage, Pixmap *pixmap_return));
 
@@ -263,7 +263,6 @@ HFUNC(xpmFreeRgbNames, void, (xpmRgbName *rgbn, int rgbn_max));
 HFUNC(xpmGetRGBfromName,int, (char *name, int *r, int *g, int *b));
 #endif
 
-#ifndef AMIGA
 HFUNC(xpm_xynormalizeimagebits, void, (register unsigned char *bp,
 				      register XImage *img));
 HFUNC(xpm_znormalizeimagebits, void, (register unsigned char *bp,
@@ -311,7 +310,6 @@ HFUNC(xpm_znormalizeimagebits, void, (register unsigned char *bp,
 #define ZINDEX8(x, y, img) ((y) * img->bytes_per_line) + (x)
 
 #define ZINDEX1(x, y, img) ((y) * img->bytes_per_line) + ((x) >> 3)
-#endif /* not AMIGA */
 
 #ifdef NEED_STRDUP
 HFUNC(xpmstrdup, char *, (char *s1));

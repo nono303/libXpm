@@ -38,11 +38,6 @@
  * HeDu (hedu@cul-ipn.uni-kiel.de) 4/94
  */
 
-/*
- * The code related to AMIGA has been added by
- * Lorens Younes (d93-hyo@nada.kth.se) 4/96
- */
-
 /* October 2004, source code review by Thomas Biege <thomas@suse.de> */
 
 #ifdef HAVE_CONFIG_H
@@ -106,7 +101,6 @@ LFUNC(ParseAndPutPixels, int, (Display *dc, xpmData *data, unsigned int width,
 #endif
 
 #ifndef FOR_MSW
-# ifndef AMIGA
 /* XImage pixel routines */
 LFUNC(PutImagePixels, void, (XImage *image, unsigned int width,
 			     unsigned int height, unsigned int *pixelindex,
@@ -141,11 +135,6 @@ LFUNC(PutPixel8, int, (XImage *ximage, int x, int y, unsigned long pixel));
 LFUNC(PutPixel1MSB, int, (XImage *ximage, int x, int y, unsigned long pixel));
 LFUNC(PutPixel1LSB, int, (XImage *ximage, int x, int y, unsigned long pixel));
 
-# else /* AMIGA */
-LFUNC(APutImagePixels, void, (XImage *ximage, unsigned int width,
-			      unsigned int height, unsigned int *pixelindex,
-			      Pixel *pixels));
-# endif/* AMIGA */
 #else  /* FOR_MSW */
 /* FOR_MSW pixel routine */
 LFUNC(MSWPutImagePixels, void, (Display *dc, XImage *image,
@@ -187,7 +176,6 @@ static int
 xpmVisualType(Visual *visual)
 {
 #ifndef FOR_MSW
-# ifndef AMIGA
     switch (visual->class) {
     case StaticGray:
     case GrayScale:
@@ -202,10 +190,6 @@ xpmVisualType(Visual *visual)
     default:
 	return (XPM_COLOR);
     }
-# else
-    /* set the key explicitly in the XpmAttributes to override this */
-    return (XPM_COLOR);
-# endif
 #else
     /* there should be a similar switch for MSW */
     return (XPM_COLOR);
@@ -586,11 +570,7 @@ CreateColors(
 #endif
 	    unsigned int i;
 
-#ifndef AMIGA
 	    ncols = visual->map_entries;
-#else
-	    ncols = colormap->Count;
-#endif
 	    cols = (XColor *) XpmCalloc(ncols, sizeof(XColor));
 	    for (i = 0; i < ncols; ++i)
 		cols[i].pixel = i;
@@ -860,8 +840,6 @@ XpmCreateImageFromXpmImage(
 	    RETURN(ErrorStatus);
 
 #ifndef FOR_MSW
-# ifndef AMIGA
-
 	/*
 	 * set the ximage data using optimized functions for ZPixmap
 	 */
@@ -882,10 +860,6 @@ XpmCreateImageFromXpmImage(
 	else
 	    PutImagePixels(ximage, image->width, image->height,
 			   image->data, image_pixels);
-# else /* AMIGA */
-	APutImagePixels(ximage, image->width, image->height,
-			image->data, image_pixels);
-# endif
 #else  /* FOR_MSW */
 	MSWPutImagePixels(display, ximage, image->width, image->height,
 			  image->data, image_pixels);
@@ -899,13 +873,8 @@ XpmCreateImageFromXpmImage(
 	    RETURN(ErrorStatus);
 
 #ifndef FOR_MSW
-# ifndef AMIGA
 	PutImagePixels1(shapeimage, image->width, image->height,
 			image->data, mask_pixels);
-# else /* AMIGA */
-	APutImagePixels(shapeimage, image->width, image->height,
-			image->data, mask_pixels);
-# endif
 #else  /* FOR_MSW */
 	MSWPutImagePixels(display, shapeimage, image->width, image->height,
 			  image->data, mask_pixels);
@@ -991,7 +960,7 @@ CreateXImage(
     if (!*image_return)
 	return (XpmNoMemory);
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
     if (height != 0 && (*image_return)->bytes_per_line >= INT_MAX / height) {
 	XDestroyImage(*image_return);
 	*image_return = NULL;
@@ -1017,13 +986,12 @@ CreateXImage(
 	return (XpmNoMemory);
     }
 #else
-    /* under FOR_MSW and AMIGA XCreateImage has done it all */
+    /* under FOR_MSW XCreateImage has done it all */
 #endif
     return (XpmSuccess);
 }
 
 #ifndef FOR_MSW
-# ifndef AMIGA
 /*
  * The functions below are written from X11R5 MIT's code (XImUtil.c)
  *
@@ -1705,50 +1673,6 @@ XpmCreatePixmapFromXpmImage(
     return (ErrorStatus);
 }
 
-# else /* AMIGA */
-
-static void
-APutImagePixels (
-    XImage        *image,
-    unsigned int   width,
-    unsigned int   height,
-    unsigned int  *pixelindex,
-    Pixel         *pixels)
-{
-    unsigned int   *data = pixelindex;
-    unsigned int    x, y;
-    unsigned char  *array;
-    XImage         *tmp_img;
-    BOOL            success = FALSE;
-
-    array = XpmMalloc ((((width+15)>>4)<<4)*sizeof (*array));
-    if (array != NULL)
-    {
-	tmp_img = AllocXImage ((((width+15)>>4)<<4), 1,
-			       image->rp->BitMap->Depth);
-	if (tmp_img != NULL)
-	{
-	    for (y = 0; y < height; ++y)
-	    {
-		for (x = 0; x < width; ++x)
-		    array[x] = pixels[*(data++)];
-		WritePixelLine8 (image->rp, 0, y, width, array, tmp_img->rp);
-	    }
-	    FreeXImage (tmp_img);
-	    success = TRUE;
-	}
-	XpmFree (array);
-    }
-
-    if (!success)
-    {
-	for (y = 0; y < height; ++y)
-	    for (x = 0; x < width; ++x)
-		XPutPixel (image, x, y, pixels[*(data++)]);
-    }
-}
-
-# endif/* AMIGA */
 #else  /* FOR_MSW part follows */
 static void
 MSWPutImagePixels(
@@ -1776,7 +1700,7 @@ MSWPutImagePixels(
 
 
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
 
 static int
 PutPixel1(
@@ -1994,7 +1918,7 @@ PutPixel1LSB(
     return 1;
 }
 
-#endif /* not FOR_MSW && not AMIGA */
+#endif /* not FOR_MSW */
 
 /*
  * This function parses an Xpm file or data and directly create an XImage
@@ -2161,7 +2085,7 @@ xpmParseDataAndCreate(
 	if (ErrorStatus != XpmSuccess)
 	    RETURN(ErrorStatus);
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
 
 	/*
 	 * set the XImage pointer function, to be used with XPutPixel,
@@ -2195,7 +2119,7 @@ xpmParseDataAndCreate(
 	    ximage->f.put_pixel = PutPixel1;
 	else
 	    ximage->f.put_pixel = PutPixel;
-#endif /* not FOR_MSW && not AMIGA */
+#endif /* not FOR_MSW */
     }
 
     /* create the shape mask image */
@@ -2205,7 +2129,7 @@ xpmParseDataAndCreate(
 	if (ErrorStatus != XpmSuccess)
 	    RETURN(ErrorStatus);
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
 	if (shapeimage->bitmap_bit_order == MSBFirst)
 	    shapeimage->f.put_pixel = PutPixel1MSB;
 	else

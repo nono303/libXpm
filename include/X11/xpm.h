@@ -37,11 +37,6 @@
  * HeDu (hedu@cul-ipn.uni-kiel.de) 4/94
  */
 
-/*
- * The code related to AMIGA has been added by
- * Lorens Younes (d93-hyo@nada.kth.se) 4/96
- */
-
 #ifndef XPM_h
 #define XPM_h
 
@@ -70,13 +65,9 @@
 # include "simx.h"		/* defines some X stuff using MSW types */
 #define NEED_STRCASECMP		/* at least for MSVC++ */
 #else /* FOR_MSW */
-# ifdef AMIGA
-#  include "amigax.h"
-# else /* not AMIGA */
-#  include <X11/Xfuncproto.h>
-#  include <X11/Xlib.h>
-#  include <X11/Xutil.h>
-# endif /* not AMIGA */
+# include <X11/Xfuncproto.h>
+# include <X11/Xlib.h>
+# include <X11/Xutil.h>
 #endif /* FOR_MSW */
 
 /* let's define Pixel if it is not done yet */
@@ -292,9 +283,8 @@ typedef struct {
 _XFUNCPROTOBEGIN
 
 /* FOR_MSW, all ..Pixmap.. are excluded, only the ..XImage.. are used */
-/* Same for Amiga! */
 
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
     FUNC(XpmCreatePixmapFromData, int, (Display *display,
 					Drawable d,
 					char **data,
@@ -351,7 +341,7 @@ _XFUNCPROTOBEGIN
 					 XImage **image_return,
 					 XImage **shapemask_return,
 					 XpmAttributes *attributes));
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
     FUNC(XpmCreatePixmapFromBuffer, int, (Display *display,
 					  Drawable d,
 					  char *buffer,
@@ -395,7 +385,7 @@ _XFUNCPROTOBEGIN
     FUNC(XpmWriteFileFromXpmImage, int, (const char *filename,
 					 XpmImage *image,
 					 XpmInfo *info));
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
     FUNC(XpmCreatePixmapFromXpmImage, int, (Display *display,
 					    Drawable d,
 					    XpmImage *image,
@@ -414,7 +404,7 @@ _XFUNCPROTOBEGIN
 					   XImage *shapeimage,
 					   XpmImage *xpmimage,
 					   XpmAttributes *attributes));
-#if !defined(FOR_MSW) && !defined(AMIGA)
+#ifndef FOR_MSW
     FUNC(XpmCreateXpmImageFromPixmap, int, (Display *display,
 					    Pixmap pixmap,
 					    Pixmap shapemask,

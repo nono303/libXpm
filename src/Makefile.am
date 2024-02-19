@@ -40,4 +40,4 @@ libXpm_la_SOURCES =					\
 	rgbtab.h					\
 	scan.c
 
-EXTRA_DIST = amigax.c amigax.h simx.c simx.h
+EXTRA_DIST = simx.c simx.h

@@ -32,11 +32,6 @@
 *  Developed by Arnaud Le Hors                                                *
 \*****************************************************************************/
 
-/*
- * The code related to AMIGA has been added by
- * Lorens Younes (d93-hyo@nada.kth.se) 4/96
- */
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
@@ -124,11 +119,7 @@ XpmWriteFileFromXpmImage(
 #ifdef VMS
 	name = filename;
 #else
-	if (!(name = strrchr(filename, '/'))
-#ifdef AMIGA
-	    && !(name = strrchr(filename, ':'))
-#endif
-     )
+	if (!(name = strrchr(filename, '/')))
 	    name = filename;
 	else
 	    name++;

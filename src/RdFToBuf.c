@@ -47,9 +47,7 @@
 #if !defined(FOR_MSW) && !defined(WIN32)
 #include <unistd.h>
 #endif
-#ifndef VAX11C
 #include <fcntl.h>
-#endif
 #if defined(FOR_MSW) || defined(WIN32)
 #include <io.h>
 #define stat _stat
@@ -71,11 +69,7 @@ XpmReadFileToBuffer(
 
     *buffer_return = NULL;
 
-#ifndef VAX11C
     fd = open(filename, O_RDONLY | O_CLOEXEC);
-#else
-    fd = open(filename, O_RDONLY, NULL);
-#endif
     if (fd < 0)
 	return XpmOpenFailed;
 

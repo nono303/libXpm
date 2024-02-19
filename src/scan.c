@@ -32,11 +32,6 @@
 *  Developed by Arnaud Le Hors                                                *
 \*****************************************************************************/
 
-/*
- * The code related to FOR_MSW has been added by
- * HeDu (hedu@cul-ipn.uni-kiel.de) 4/94
- */
-
 /* October 2004, source code review by Thomas Biege <thomas@suse.de> */
 
 #ifdef HAVE_CONFIG_H
@@ -76,7 +71,6 @@ LFUNC(storeMaskPixel, int, (Pixel pixel, PixelsMap *pmap,
 typedef int (*storeFuncPtr)(Pixel pixel, PixelsMap *pmap,
 			    unsigned int *index_return);
 
-#ifndef FOR_MSW
 LFUNC(GetImagePixels, int, (XImage *image, unsigned int width,
 			    unsigned int height, PixelsMap *pmap));
 
@@ -92,11 +86,7 @@ LFUNC(GetImagePixels8, int, (XImage *image, unsigned int width,
 LFUNC(GetImagePixels1, int, (XImage *image, unsigned int width,
 			     unsigned int height, PixelsMap *pmap,
 			     storeFuncPtr storeFunc));
-#else  /* ndef FOR_MSW */
-LFUNC(MSWGetImagePixels, int, (Display *d, XImage *image, unsigned int width,
-			       unsigned int height, PixelsMap *pmap,
-			       storeFuncPtr storeFunc));
-#endif
+
 LFUNC(ScanTransparentColor, int, (XpmColor *color, unsigned int cpp,
 				  XpmAttributes *attributes));
 
@@ -244,13 +234,8 @@ XpmCreateXpmImageFromImage(
      * scan shape mask if any
      */
     if (shapeimage) {
-#ifndef FOR_MSW
 	ErrorStatus = GetImagePixels1(shapeimage, width, height, &pmap,
 				      storeMaskPixel);
-#else
-	ErrorStatus = MSWGetImagePixels(display, shapeimage, width, height,
-					&pmap, storeMaskPixel);
-#endif
 	if (ErrorStatus != XpmSuccess)
 	    RETURN(ErrorStatus);
     }
@@ -264,7 +249,6 @@ XpmCreateXpmImageFromImage(
      */
 
     if (image) {
-#ifndef FOR_MSW
 	if (((image->bits_per_pixel | image->depth) == 1)  &&
 	    (image->byte_order == image->bitmap_bit_order))
 	    ErrorStatus = GetImagePixels1(image, width, height, &pmap,
@@ -278,10 +262,6 @@ XpmCreateXpmImageFromImage(
 		ErrorStatus = GetImagePixels32(image, width, height, &pmap);
 	} else
 	    ErrorStatus = GetImagePixels(image, width, height, &pmap);
-#else
-	ErrorStatus = MSWGetImagePixels(display, image, width, height, &pmap,
-					storePixel);
-#endif
 	if (ErrorStatus != XpmSuccess)
 	    RETURN(ErrorStatus);
     }
@@ -409,11 +389,7 @@ ScanOtherColors(
     Colormap colormap;
     char *rgb_fname;
 
-#ifndef FOR_MSW
     xpmRgbName rgbn[MAX_RGBNAMES];
-#else
-    xpmRgbName *rgbn = NULL;
-#endif
     int rgbn_max = 0;
     unsigned int i, j, c, i2;
     XpmColor *color;
@@ -465,14 +441,9 @@ ScanOtherColors(
     }
     XQueryColors(display, colormap, xcolors, ncolors);
 
-#ifndef FOR_MSW
     /* read the rgb file if any was specified */
     if (rgb_fname)
 	rgbn_max = xpmReadRgbNames(attributes->rgb_fname, rgbn);
-#else
-    /* FOR_MSW: rgb names and values are hardcoded in rgbtab.h */
-    rgbn_max = xpmReadRgbNames(NULL, NULL);
-#endif
 
     if (attributes && attributes->valuemask & XpmColorTable) {
 	colorTable = attributes->colorTable;
@@ -535,13 +506,8 @@ ScanOtherColors(
 	    else {
 		/* at last store the rgb value */
 		char buf[BUFSIZ];
-#ifndef FOR_MSW
 		sprintf(buf, "#%04X%04X%04X",
 			xcolor->red, xcolor->green, xcolor->blue);
-#else
-		sprintf(buf, "#%02x%02x%02x",
-			xcolor->red, xcolor->green, xcolor->blue);
-#endif
 		color->c_color = (char *) xpmstrdup(buf);
 	    }
 	    if (!color->c_color) {
@@ -557,7 +523,6 @@ ScanOtherColors(
     return (XpmSuccess);
 }
 
-#ifndef FOR_MSW
 /*
  * The functions below are written from X11R5 MIT's code (XImUtil.c)
  *
@@ -881,36 +846,6 @@ GetImagePixels1(
     return (XpmSuccess);
 }
 
-#else  /* ndef FOR_MSW */
-static int
-MSWGetImagePixels(
-    Display	 *display,
-    XImage	 *image,
-    unsigned int  width,
-    unsigned int  height,
-    PixelsMap	 *pmap,
-    int		(*storeFunc) (Pixel, PixelsMap*, unsigned int *))
-{
-    unsigned int *iptr;
-    unsigned int x, y;
-    Pixel pixel;
-
-    iptr = pmap->pixelindex;
-
-    SelectObject(*display, image->bitmap);
-    for (y = 0; y < height; y++) {
-	for (x = 0; x < width; x++, iptr++) {
-	    pixel = GetPixel(*display, x, y);
-	    if ((*storeFunc) (pixel, pmap, iptr))
-		return (XpmNoMemory);
-	}
-    }
-    return (XpmSuccess);
-}
-
-#endif
-
-#ifndef FOR_MSW
 int
 XpmCreateXpmImageFromPixmap(
     Display		*display,
@@ -949,5 +884,3 @@ XpmCreateXpmImageFromPixmap(
 
     return (ErrorStatus);
 }
-
-#endif /* ndef FOR_MSW */

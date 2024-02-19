@@ -1,5 +1,4 @@
 EXTRA_DIST = \
 	xpm.PS.gz \
 	FAQ.html \
-	README.html \
-	README.MSW
+	README.html

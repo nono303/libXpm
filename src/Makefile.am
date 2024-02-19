@@ -37,7 +37,4 @@ libXpm_la_SOURCES =					\
 	misc.c						\
 	parse.c						\
 	rgb.c						\
-	rgbtab.h					\
 	scan.c
-
-EXTRA_DIST = simx.c simx.h

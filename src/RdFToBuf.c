@@ -32,11 +32,6 @@
 *  Developed by Arnaud Le Hors                                                *
 \*****************************************************************************/
 
-/*
- * The code related to FOR_MSW has been added by
- * HeDu (hedu@cul-ipn.uni-kiel.de) 4/94
- */
-
 /* October 2004, source code review by Thomas Biege <thomas@suse.de> */
 
 #ifdef HAVE_CONFIG_H
@@ -44,11 +39,11 @@
 #endif
 #include "XpmI.h"
 #include <sys/stat.h>
-#if !defined(FOR_MSW) && !defined(WIN32)
+#ifndef WIN32
 #include <unistd.h>
 #endif
 #include <fcntl.h>
-#if defined(FOR_MSW) || defined(WIN32)
+#ifdef WIN32
 #include <io.h>
 #define stat _stat
 #define fstat _fstat

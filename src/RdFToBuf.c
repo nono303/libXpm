@@ -37,16 +37,14 @@
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <sys/stat.h> // before XpmI.h, which may rewrite stat (etc) via Xwindows.h
 #include "XpmI.h"
-#include <sys/stat.h>
 #ifndef WIN32
 #include <unistd.h>
 #endif
 #include <fcntl.h>
 #ifdef WIN32
 #include <io.h>
-#define stat _stat
-#define fstat _fstat
 #define fdopen _fdopen
 #define O_RDONLY _O_RDONLY
 #endif

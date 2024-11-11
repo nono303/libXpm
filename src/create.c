@@ -41,6 +41,10 @@
 #include "XpmI.h"
 #include <ctype.h>
 
+#if defined(_MSC_VER)
+#define strcasecmp _stricmp
+#endif
+
 LFUNC(xpmVisualType, int, (Visual *visual));
 
 LFUNC(AllocColor, int, (Display *display, Colormap colormap,

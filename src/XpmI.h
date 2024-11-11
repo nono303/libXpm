@@ -48,7 +48,9 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
+#if !defined(_MSC_VER)
 #include <strings.h>
+#endif
 
 #include <X11/Xos.h>
 #include <X11/Xfuncs.h>

@@ -45,21 +45,21 @@ XpmCreateXpmImage \- create an Xpm image
 
 .SH ARGUMENTS
 
-.IP \fIdata\fP  li
+.IP \fIdata\fP  1i
 Specifies the location of the data.
-.IP \fIimage\fP li
+.IP \fIimage\fP 1i
 Specifies the image structure location.
-.IP \fIinfo\fP li
+.IP \fIinfo\fP 1i
 Specifies the location of an XpmInfo structure to get and store information (or NULL).
-.IP \fIdisplay\fP li
+.IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
-.IP \fIimage\fP li
+.IP \fIimage\fP 1i
 Specifies the X image used as the source.
-.IP \fIshapeimage\fP li
+.IP \fIshapeimage\fP 1i
 Specifies the shape mask image, if any.
-.IP \fIxpmimage\fP li
+.IP \fIxpmimage\fP 1i
 Specifies the XPM image which is created.
-.IP \fIattributes\fP li
+.IP \fIattributes\fP 1i
 Specifies the location of a structure containing information (or NULL).
 
 .SH DESCRIPTION

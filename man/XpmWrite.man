@@ -44,23 +44,23 @@ XpmWrite \- write an XPM file
 .fi
 
 .SH ARGUMENTS
-.IP \fIdisplay\fP li
+.IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
-.IP \fIfilename\fP li
+.IP \fIfilename\fP 1i
 Specifies the file name to use.
-.IP \fIpixmap\fP li
+.IP \fIpixmap\fP 1i
 Specifies the pixmap.
-.IP \fIshapemask\fP li
+.IP \fIshapemask\fP 1i
 Specifies the shape mask pixmap.
-.IP \fIattributes\fP li
+.IP \fIattributes\fP 1i
 Specifies the location of a structure containing information (or NULL).
-.IP \fIdata\fP li
+.IP \fIdata\fP 1i
 Specifies the data array to read.
-.IP \fIimage\fP li
+.IP \fIimage\fP 1i
 Specifies the image.
-.IP \fIinfo\fP li
+.IP \fIinfo\fP 1i
 Specifies the location of a structure to get information from (or NULL).
-.IP \fIbuffer\fP li
+.IP \fIbuffer\fP 1i
 Specifies the buffer to read.
 
 .SH DESCRIPTION

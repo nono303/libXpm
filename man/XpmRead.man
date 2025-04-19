@@ -46,23 +46,23 @@ XpmRead \- read an XPM file
 .fi
 
 .SH ARGUMENTS
-.IP   \fIdisplay\fP li
+.IP   \fIdisplay\fP 1i
 Specifies the connection to the X server.
-.IP   \fIfilename\fP li
+.IP   \fIfilename\fP 1i
 Specifies the file name to use.
-.IP   \fIimage_return\fP li
+.IP   \fIimage_return\fP 1i
 Returns the image which is created.
-.IP   \fIshapeimage_return\fP li
+.IP   \fIshapeimage_return\fP 1i
 Returns the shape mask image which is created if the color None is used.
-.IP   \fIattributes\fP li
+.IP   \fIattributes\fP 1i
 Specifies the location of a structure to get and store information (or NULL).
-.IP   \fIbuffer_return\fP li
+.IP   \fIbuffer_return\fP 1i
 Returns the buffer created.
-.IP   \fIdata_return\fP li
+.IP   \fIdata_return\fP 1i
 Returns the data array created.
-.IP   \fIimage\fP li
+.IP   \fIimage\fP 1i
 Specifies the image structure location.
-.IP   \fIinfo\fP li
+.IP   \fIinfo\fP 1i
 Specifies the location of a structure to store possible information (or NULL).
 
 .SH DESCRIPTION

@@ -84,7 +84,7 @@ the colors and possibly the data returned into the XpmAttributes structure.
 To create an XImage from an XPM buffer, use
 .BR XpmCreateImageFromBuffer ().
 The
-.BR XpmCreateImageFromBuffer()
+.BR XpmCreateImageFromBuffer ()
 function works the same way as
 .BR XpmReadFileToImage (__libmansuffix__),
 it just parses the buffer instead of the file.

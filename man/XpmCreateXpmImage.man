@@ -100,7 +100,7 @@ contain valid XPM data, it returns
 If insufficient working storage is allocated, it returns
 .BR XpmNoMemory .
 On success it returns
-.BR XpmSuccess.
+.BR XpmSuccess .
 If the passed XpmInfo structure pointer is not NULL,
 .BR XpmCreateXpmImageFromData ()
 looks for the following attributes:

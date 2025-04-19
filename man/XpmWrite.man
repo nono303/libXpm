@@ -150,7 +150,7 @@ If insufficient working storage is allocated, it returns
 If no error occurs then it returns
 .BR XpmSuccess .
 If the passed XpmInfo structure pointer is not NULL,
-.BR XpmWriteFileFromXpmImage()
+.BR XpmWriteFileFromXpmImage ()
 looks for the following attributes:
 XpmComments, XpmExtensions, and XpmHotspot,
 and writes the related information out as well.

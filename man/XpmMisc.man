@@ -71,7 +71,7 @@ function frees the structure members which are not NULL,
 but not the structure itself.
 .PP
 To free possible data stored into an XpmInfo structure use
-.BR XpmFreeXpmInfo().
+.BR XpmFreeXpmInfo ().
 .PP
 To free data possibly stored into an array of XpmExtension use
 .BR XpmFreeExtensions ().

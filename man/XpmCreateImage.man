@@ -59,7 +59,6 @@ Specifies the shape mask image which is created if any.
 .SH DESCRIPTION
 
 .SS XpmCreateImageFromData
-.PP
 To create an XImage from an XPM data, use
 .BR XpmCreateImageFromData ().
 .PP
@@ -80,7 +79,6 @@ Here again, it is the caller’s responsibility to free the returned images,
 the colors and possibly the data returned into the XpmAttributes structure.
 
 .SS XpmCreateImageFromBuffer
-.PP
 To create an XImage from an XPM buffer, use
 .BR XpmCreateImageFromBuffer ().
 The
@@ -93,7 +91,6 @@ Be aware that the feature provided on some systems by
 to deal with compressed files is not available here.
 
 .SS XpmCreateImageFromXpmImage
-.PP
 To create an XImage from an XpmImage, use
 .BR XpmCreateImageFromXpmImage ().
 From the given XpmImage and XpmAttributes if not NULL,

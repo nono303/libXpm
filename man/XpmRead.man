@@ -67,7 +67,6 @@ Specifies the location of a structure to store possible information (or NULL).
 
 .SH DESCRIPTION
 .SS XpmReadFileToImage
-.PP
 The
 .BR XpmReadFileToImage ()
 function reads in a file in the XPM format.
@@ -200,7 +199,6 @@ are not used, and possibly the data returned into the XpmAttributes using
 .BR XpmFreeAttributes (__libmansuffix__).
 
 .SS XpmReadFileToBuffer
-.PP
 .BR XpmReadFileToBuffer ()
 allocates and fills a buffer from a file.
 .BR XpmReadFileToBuffer ()
@@ -232,7 +230,6 @@ On some systems this may lead to a performance improvement,
 since the parsing will be performed in memory, but it uses more memory.
 
 .SS XpmReadFileToData
-.PP
 .BR XpmReadFileToData ()
 returns
 .B XpmOpenFailed
@@ -250,7 +247,6 @@ should be freed with
 when done.
 
 .SS XpmReadFileToXpmImage
-.PP
 The
 .BR XpmReadFileToXpmImage ()
 function reads in a file in the XPM format.

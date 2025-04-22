@@ -58,7 +58,6 @@ Specifies the image
 
 .SH DESCRIPTION
 .SS XpmCreateDataFromImage
-.PP
 In some cases, one may want to create an XPM data from an XImage, to do so use
 .BR XpmCreateDataFromImage ().
 The
@@ -72,7 +71,6 @@ It is the caller’s responsibility to free the data, using
 when finished.
 
 .SS XpmCreateDataFromPixmap
-.PP
 .BR XpmCreateDataFromPixmap ()
 creates an XPM data from a Pixmap.
 The
@@ -89,7 +87,6 @@ returns the same errors as
 .BR XpmCreateDataFromImage ().
 
 .SS XpmCreateDataFromXpmImage
-.PP
 .BR XpmCreateDataFromXpmImage ()
 creates an XPM data from an XpmImage.
 The

@@ -60,7 +60,6 @@ Specifies the XpmImage.
 
 .SH DESCRIPTION
 .SS XpmCreatePixmapFromData
-.PP
 To create a Pixmap from an XPM data, use
 .BR XpmCreatePixmapFromData ().
 The
@@ -80,7 +79,6 @@ Do not forget to free the returned pixmaps, the colors, and possibly the data
 returned into the XpmAttributes structure when done.
 
 .SS XpmCreatePixmapFromBuffer
-.PP
 To create a Pixmap from an XPM buffer, use
 .BR XpmCreatePixmapFromBuffer ().
 The
@@ -93,7 +91,6 @@ instead of
 .BR XpmReadFileToImage (__libmansuffix__).
 
 .SS XpmCreatePixmapFromXpmImage
-.PP
 .BR XpmCreatePixmapFromXpmImage ()
 creates X images calling
 .BR XpmCreateImageFromXpmImage (__libmansuffix__)

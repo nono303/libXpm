@@ -65,7 +65,6 @@ Specifies the buffer to read.
 
 .SH DESCRIPTION
 .SS XpmWriteFileFromImage
-.PP
 The
 .BR XpmWriteFileFromImage ()
 function writes an
@@ -104,7 +103,6 @@ And if instead of a file name, NULL is passed to
 it writes to the standard output.
 
 .SS XpmWriteFileFromPixmap
-.PP
 To write out a Pixmap to an XPM file, use
 .BR XpmWriteFileFromPixmap ().
 .PP
@@ -123,7 +121,6 @@ function returns the same errors as
 .BR XpmWriteFileFromImage ().
 
 .SS XpmWriteFileFromData
-.PP
 .BR XpmWriteFileFromData ()
 writes an XPM data array to an XPM file.
 .PP
@@ -137,7 +134,6 @@ if this is not a valid XPM data, and
 otherwise.
 
 .SS XpmWriteFileFromXpmImage
-.PP
 To write out an XpmImage to an XPM file, use
 .BR XpmWriteFileFromXpmImage ().
 The
@@ -163,7 +159,6 @@ And if instead of a file name, NULL is passed to
 it writes to the standard output.
 
 .SS XpmWriteFileFromBuffer
-.PP
 .BR XpmWriteFileFromBuffer ()
 writes a XPM buffer to a file.
 .BR XpmWriteFileFromBuffer ()

@@ -62,7 +62,6 @@ Specifies the number of extensions
 Specifies the structure to free
 
 .SH DESCRIPTION
-.PP
 To free possible data stored into an XpmImage structure use
 .BR XpmFreeXpmImage ().
 The

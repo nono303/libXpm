@@ -75,8 +75,9 @@ exactly works as
 .BR XpmReadFileToImage (__libmansuffix__)
 does and returns the same way.
 It just reads data instead of a file.
-Here again, it is the caller’s responsibility to free the returned images,
-the colors and possibly the data returned into the XpmAttributes structure.
+Here again, it is the caller’s responsibility to free
+the returned images, the colors,
+and possibly the data returned into the XpmAttributes structure.
 
 .SS XpmCreateImageFromBuffer
 To create an XImage from an XPM buffer, use

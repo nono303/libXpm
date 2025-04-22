@@ -75,8 +75,8 @@ and
 .I shapemask_return
 if not NULL, and finally destroys the created images using
 .BR XDestroyImage (__libmansuffix__).
-Do not forget to free the returned pixmaps, the colors, and possibly the data
-returned into the XpmAttributes structure when done.
+Do not forget to free the returned pixmaps, the colors,
+and possibly the data returned into the XpmAttributes structure when done.
 
 .SS XpmCreatePixmapFromBuffer
 To create a Pixmap from an XPM buffer, use
@@ -94,8 +94,8 @@ instead of
 .BR XpmCreatePixmapFromXpmImage ()
 creates X images calling
 .BR XpmCreateImageFromXpmImage (__libmansuffix__)
-with the given XpmImage and XpmAttributes, then it creates the related pixmaps
-which are returned to
+with the given XpmImage and XpmAttributes,
+then it creates the related pixmaps which are returned to
 .I pixmap_return
 and
 .I shapemask_return

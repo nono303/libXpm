@@ -91,7 +91,8 @@ returns the same errors as
 creates an XPM data from an XpmImage.
 The
 .BR XpmCreateDataFromXpmImage ()
-function writes out the given image to a single block malloc’ed data in XPM format.
+function writes out the given image to
+a single block malloc’ed data in XPM format.
 If insufficient working storage is allocated, it returns
 .BR XpmNoMemory ,
 and returns

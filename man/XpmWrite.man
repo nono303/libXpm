@@ -84,18 +84,20 @@ XpmColormap, XpmHotspot, XpmCharsPerPixel, XpmRgbFilename, and XpmExtensions.
 As a backward compatibility feature,
 .BR XpmWriteFileFromImage ()
 also looks for the XpmInfos attributes.
-If the filename contains an extension such as “.xpm”, in order to get a valid C
-variable name, the dot character is
+If the filename contains an extension such as “.xpm”,
+in order to get a valid C variable name, the dot character is
 replaced by an underscore ’_’ when writing out.
-As a backward compatibility feature, if the XpmInfos attributes are defined it writes out possible stored
+As a backward compatibility feature,
+if the XpmInfos attributes are defined it writes out possible stored
 information such as comments, color defaults and symbol.
 Finally, if the XpmRgbFilenameattribute is defined,
 .BR XpmWriteFileFromImage ()
 searches for color names in
 this file and if found writes them out instead of the rgb values.
 .PP
-In addition on systems which support such features if the given file name ends
-by ’.Z’ or ’.gz’ it is assumed to be a compressed file. Then,
+In addition on systems which support such features
+if the given file name ends with ’.Z’ or ’.gz’
+it is assumed to be a compressed file. Then,
 .BR XpmWriteFileFromImage ()
 writes to a piped compress or gzip process.
 And if instead of a file name, NULL is passed to
@@ -110,7 +112,8 @@ If the passed XpmAttributes structure pointer is not NULL,
 .BR XpmWriteFileFromPixmap ()
 looks for the following attributes: XpmSize.
 If they are not defined it performs an XGetGeometry operation.
-Then it uses XGetImage to get from the given pixmaps the related X images which are passed to
+Then it uses XGetImage to get from the given pixmaps
+the related X images which are passed to
 .BR XpmWriteFileFromImage ().
 Finally
 .BR XpmWriteFileFromPixmap ()
@@ -150,8 +153,9 @@ If the passed XpmInfo structure pointer is not NULL,
 looks for the following attributes:
 XpmComments, XpmExtensions, and XpmHotspot,
 and writes the related information out as well.
-In addition on systems which support such features if the given file name ends
-by ’.Z’ or ’.gz’ it is assumed to be a compressed file. Then,
+In addition on systems which support such features
+if the given file name ends with ’.Z’ or ’.gz’
+it is assumed to be a compressed file. Then,
 .BR XpmWriteFileFromXpmImage ()
 writes to a piped compress or gzip process.
 And if instead of a file name, NULL is passed to

@@ -72,7 +72,7 @@ wait_for_stable_file(const gchar *path, gint64 stable_usec, gint64 timeout_usec)
                 now = g_get_monotonic_time();
                 if (now >= deadline)
                         g_error("Timeout waiting for %s to be created and become stable", path);
-                
+
 		if (g_stat(path, &st) == 0) {
                         if (!seen || st.st_size != last_size || st.st_mtime != last_mtime) {
                                 last_size   = st.st_size;
@@ -140,7 +140,7 @@ test_WFFXI_helper(const gchar *newfilepath, XpmImage *imageA, XpmInfo *infoA)
           * and for the output file to stop changing before we read it back.
           */
          wait_for_stable_file(newfilepath, XPM_STABLE_USEC, XPM_TIMEOUT_USEC);
-    } 
+    }
 
     status = XpmReadFileToXpmImage(newfilepath, &imageB, &infoB);
     g_assert_cmpint(status, ==, XpmSuccess);
@@ -234,7 +234,7 @@ test_WFFXD_helper(const gchar *newfilepath, char **dataA)
           */
          wait_for_stable_file(newfilepath, XPM_STABLE_USEC, XPM_TIMEOUT_USEC);
     }
-   
+
     status = XpmReadFileToData(newfilepath, &dataB);
     g_assert_cmpint(status, ==, XpmSuccess);
 

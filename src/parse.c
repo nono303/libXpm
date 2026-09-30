@@ -414,7 +414,10 @@ ParsePixels(
     unsigned int a, x, y;
     int ErrorStatus;
 
-    if (width == 0 || height == 0)
+    if ((width == 0) && (height != 0))
+	return (XpmFileInvalid);
+
+    if ((height == 0) && (width != 0))
 	return (XpmFileInvalid);
 
     if ((height > 0 && width >= UINT_MAX / height) ||

@@ -78,3 +78,4 @@ core
 #
 tap-driver.sh
 test-driver
+/windows/builds
